@@ -6,15 +6,16 @@ Tendo em vista os entraves para inserção no mercado de trabalho formal, nós c
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Eduardo Bandeira
+* Horácio Ngunga
+* Lucas Rocha
+* Vitor Salem
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Luciana De Nardin
+* Rommel Vieira Carneiro
+* Simone Alves Nogueira
 
 ## Instruções de utilização
 
