@@ -1,6 +1,8 @@
-# Nome do projeto
+# Desemprego
 
-Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
+Trabalho focado na criação de uma solução web para um dos temas mais relevantes da nossa realidade atual o Desemprego. Hoje temos mais de 14 milhões de brasileiros que enfrentam essa difícil situação. 
+
+Tendo em vista os entraves para inserção no mercado de trabalho formal, nós construiremos uma possível solução para essas pessoas. 
 
 ## Alunos integrantes da equipe
 
