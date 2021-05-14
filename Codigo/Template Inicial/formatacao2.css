@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(173, 213, 216);
+}
+
+
+#nome{
+    display: inline;
+}
+
+#parte1{
+    display: block;
+    float: left;
+}
+#form{
+    display: inline;
+    float: right;
+}
