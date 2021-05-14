@@ -1,29 +1,35 @@
 # Gerenciamento de Projeto
 
-> Descreva aqui a metodologia de trabalho do grupo para atacar o
-> problema.
+> Como metodologia ágil será utilizado o Scrum que foi proposto para o desenvolvimento do solução. Como ferramenta kanban utilizaremos o Trello, tornando esse processo automatizado e que traz transparência para a equipe. Como ferramenta de compartilhamento de documentos estamos utilizando o Google drive.
 
 ## Divisão de Papéis
 
-> Apresente a divisão de papéis entre os membros do grupo.
->
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu 
-> Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+ -  Scrum Master: Lucas Rocha 
+ -	Product Owner: Horácio Ngunga
+ -	Equipe de Desenvolvimento
+    -	Lucas Rocha
+    -	Horácio Ngunga
+    -	Eduardo Bandeira
+    -	Vitor Salem
+ -	Equipe de Design
+    -	Lucas Rocha
+    -	Eduardo Bandeira
+    -	Vitor Salem
 
 ## Processo
 
-> Coloque  informações sobre detalhes da implementação do Scrum seguido
-> pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar
-> o andamento do projeto, a execução das tarefas e o status de desenvolvimento
-> da solução.
+> Estamos utilizando o Google drive para manter os documentos acessíveis a todos os membros e para que as contribuições sejam simultáneas. Além disso, para manter a tranparência e a evolução do projeto criamos um quadro no Trello. O Trello está organizado com as seguintes listas:
+- Backlog do produto: Nela temos todas as sprints do processo, bem como os requisitos pensados em primeiro plano para o desenvolvimento da nossa solução (aberto a mudanças com o avanço do processo)
+-	Atividades concluídas: Estão listadas as atividades que já foram entregues e finalizadas, bem como os documentos de entrega, ou os devidos links para acesso da documentação produzida
+-	Atividades a serem feitas: Apresenta as demais atividades que estão no backlog do produto que ainda não foram iniciadas
+-	Backlog da sprint: Apresenta as atividades a serem desenvolvidas naquela determinada sprint e sua data
+-	Trabalhando: Apresenta as atividades que estão sendo realizadas no momento pela equipe de desenvolvedores, além de conter a data limite para entrega, seu respectivo responsável e os avanços sobre aquela atividade.
+
+O links para acesso a ferramentas que estamos utilizando estão abaixo
 > 
 > **Links Úteis**:
-> - [Tutorial Trello](https://trello.com/b/8AygzjUA/tutorial-trello)
-> - [Gestão ágil de projetos com o Trello](https://www.youtube.com/watch?v=1o9BOMAKBRE)
-> - [Gerência de projetos - Trello com Scrum](https://www.youtube.com/watch?v=DHLA8X_ujwo)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
+> - [Trello](https://trello.com/b/PEShi5lE/tiaw-desemprego)
+> - [Google drive](https://drive.google.com/drive/folders/1WYRAAqnf72_2vbucvY40xV32W0Z2l5Fl?usp=sharing)
 
 ## Ferramentas
 
