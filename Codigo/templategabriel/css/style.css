@@ -1,0 +1,15 @@
+header {
+    margin-bottom: 20px;
+}
+
+/* main {
+    height: 100vh;
+} */
+
+.side-bar-link:hover {
+    font-weight: 600;
+}
+
+.card-vagas {
+    width: 100%;
+}

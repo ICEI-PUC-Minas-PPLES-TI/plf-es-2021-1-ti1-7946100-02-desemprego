@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../img/photo-1586281380349-632531db7ed4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+
+.black-background {
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+
+.card {
+    width: 400px;
+    z-index: 100;
+}
