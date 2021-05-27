@@ -58,7 +58,7 @@ $(document).ready(function() {
 
     }
 
-
+    var db = [];
     function insereVaga() {
         let vaga = {
             id: db.length + 1,
@@ -75,9 +75,10 @@ $(document).ready(function() {
 
         populaTabela()
     }
+    insereVaga();
 
     /*-------tratamento localstorage --------*/
-    var db = [];
+    
     $(function() {
         db = JSON.parse(localStorage.getItem('cadastroVagas'));
         if (db != null) {
