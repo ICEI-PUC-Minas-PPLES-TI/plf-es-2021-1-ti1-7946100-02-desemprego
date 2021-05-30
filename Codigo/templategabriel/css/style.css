@@ -13,3 +13,7 @@ header {
 .card-vagas {
     width: 100%;
 }
+
+.nav-side:hover {
+    background: #ced4da !important;
+}
