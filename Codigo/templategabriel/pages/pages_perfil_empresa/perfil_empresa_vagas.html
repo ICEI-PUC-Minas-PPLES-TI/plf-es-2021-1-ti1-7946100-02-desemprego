@@ -16,11 +16,16 @@
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
     <title>AcheiTi</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-
-
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script>
+        onload = () => {
+            const usuarioSession = sessionStorage.getItem('usuario-login');
+            if(!usuarioSession) {
+                location.href = "../index.html";
+            }
+        }
+    </script>
 </head>
 
 <body>
