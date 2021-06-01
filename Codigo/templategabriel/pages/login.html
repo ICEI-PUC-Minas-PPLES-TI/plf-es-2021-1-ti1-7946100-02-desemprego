@@ -19,7 +19,7 @@
 <body>
     <div class="black-background"></div>
     <div class="card p-4">
-        <form action="">
+        <form action="" method="post" id="login">
             <!-- <div class="d-flex">
                 <div class="custom-control custom-radio mb-3 mx-2">
                     <input name="custom-radio-1" class="custom-control-input" id="customRadio1" type="radio">
@@ -31,24 +31,40 @@
                 </div>
             </div> -->
             <div class="form-group">
-                <label for="email-login"><strong>Email:</strong></label>
+                <label for="usuario"><strong>Usuário:</strong></label>
                 <div class="input-group mb-4">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                     </div>
-                    <input type="email" id="email-login" class="form-control" placeholder="@exemplo.com">
+                    <input type="text" id="usuario" class="form-control" placeholder="@exemplo.com / username">
                     
                 </div>
-                <label for="senha-login"><strong>Senha:</strong></label>
+            </div>
+            <div class="form-group">
+                <label for="senha"><strong>Senha:</strong></label>
                 <div class="input-group mb-4">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-key-25"></i></span>
                     </div>
-                    <input type="password" id="senha-login" class="form-control" placeholder="******">
+                    <input type="password" id="senha" class="form-control" placeholder="******">
                 </div>
             </div>
-            <button class="btn btn-warning form-control mb-3">Entrar</button>
-            <a href="./cadastrar.html" class="btn btn-warning form-control text-white">Cadastrar</a>
+            <div class="alert alert-danger alert-dismissible fade show d-none alert-campo-vazio" role="alert">
+                <span class="alert-inner--icon"><i class="ni ni-support-16"></i></span>
+                <span class="alert-inner--text"><strong> Favor digitar todos os campos</strong></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show d-none alert-usuario-inexistente" role="alert">
+                <span class="alert-inner--icon"><i class="ni ni-support-16"></i></span>
+                <span class="alert-inner--text"><strong> Esse usuário não existe</strong></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <button type="submit" class="btn btn-warning form-control mb-3">Entrar</button>
+            <a href="./cadastrar_usuario.html" class="btn btn-warning form-control text-white">Cadastrar</a>
         </form>
     </div>
     <!-- Argon Scripts -->
@@ -63,5 +79,7 @@
     <script src="../assets/vendor/chart.js/dist/Chart.extension.js"></script>
     <!-- Argon JS -->
     <script src="../assets/js/argon.js?v=1.2.0"></script>
+    <!-- Login JS -->
+    <script src="../js/login.js"></script>
 </body>
 </html>
