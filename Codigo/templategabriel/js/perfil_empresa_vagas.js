@@ -1,33 +1,33 @@
 // javascript
 $(document).ready(function() {
-    // Activate tooltip
-    $('[data-toggle="tooltip"]').tooltip();
-    var numId = 0;
-    // Select/Deselect checkboxes
-    var checkbox = $('table tbody input[type="checkbox"]');
-    $("#selectAll").click(function() {
-        if (this.checked) {
-            checkbox.each(function() {
-                this.checked = true;
-            });
-        } else {
-            checkbox.each(function() {
-                this.checked = false;
-            });
-        }
-    });
-    checkbox.click(function() {
-        if (!this.checked) {
-            $("#selectAll").prop("checked", false);
-        }
-    });
+//     // Activate tooltip
+//     $('[data-toggle="tooltip"]').tooltip();
+//     var numId = 0;
+//     // Select/Deselect checkboxes
+//     var checkbox = $('table tbody input[type="checkbox"]');
+//     $("#selectAll").click(function() {
+//         if (this.checked) {
+//             checkbox.each(function() {
+//                 this.checked = true;
+//             });
+//         } else {
+//             checkbox.each(function() {
+//                 this.checked = false;
+//             });
+//         }
+//     });
+//     checkbox.click(function() {
+//         if (!this.checked) {
+//             $("#selectAll").prop("checked", false);
+//         }
+//     });
 
     //seleciona funcionalidades na tabela
     //alert($('input type="submit"]'));
-    function retornaId(id) {
-        numId = id
-        alert(numId)
-    };
+    // function retornaId(id) {
+    //     numId = id
+    //     alert(numId)
+    // };
     /*$(".excluir").click(function() {
          if (confirm("Deseja realmente?")) {
              alert(numId)
@@ -42,21 +42,21 @@ $(document).ready(function() {
          }
      })*/
 
-    function removeRegistro(id) {
-        // let confirma = confirm("Deseja realmente excluir este registro?")
-        if (confirm("Deseja realmente excluir este registro?")) {
-            alert(id)
-                /*     $(".delete").hover(function() {
-            alert($(this).getElementById("id"))
-                /*for (let i = 0; i < db.length; i++) {
-                    if (db[i].id == id) {
-                        db.splice(i, 1)
-                    }});*/
+    // function removeRegistro(id) {
+    //     // let confirma = confirm("Deseja realmente excluir este registro?")
+    //     if (confirm("Deseja realmente excluir este registro?")) {
+    //         alert(id)
+    //             /*     $(".delete").hover(function() {
+    //         alert($(this).getElementById("id"))
+    //             /*for (let i = 0; i < db.length; i++) {
+    //                 if (db[i].id == id) {
+    //                     db.splice(i, 1)
+    //                 }});*/
 
-        }
-        //populaTabela()
+    //     }
+    //     //populaTabela()
 
-    }
+    // }
 
     var db = [];
     function insereVaga() {
@@ -75,7 +75,6 @@ $(document).ready(function() {
 
         populaTabela()
     }
-    insereVaga();
 
     /*-------tratamento localstorage --------*/
     

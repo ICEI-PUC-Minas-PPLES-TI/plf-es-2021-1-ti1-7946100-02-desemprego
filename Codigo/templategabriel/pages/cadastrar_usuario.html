@@ -17,10 +17,11 @@
     <title>AcheiTi</title>
 </head>
 <body>
+    
     <div class="black-background"></div>
     <div class="card p-4">
-        <form action="">
-            <div class="d-flex">
+        <form action="#" id="cadastro-usuario" method="post">
+            <!-- <div class="d-flex">
                 <div class="custom-control custom-radio mb-3 mx-2">
                     <input name="custom-radio-1" class="custom-control-input" id="customRadio1" type="radio">
                     <label class="custom-control-label" for="customRadio1">Empresa</label>
@@ -29,38 +30,58 @@
                     <input name="custom-radio-1" class="custom-control-input" id="customRadio2" checked="" type="radio">
                     <label class="custom-control-label" for="customRadio2">Candidato</label>
                 </div>
+            </div> -->
+            <div class="form-group">
+                <label for="usuario"><strong>Usuário:</strong></label>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                    </div>
+                    <input type="text" id="usuario" class="form-control" placeholder="username">
+                </div>
             </div>
             <div class="form-group">
-                <label for="email-login"><strong>Email:</strong></label>
+                <label for="email"><strong>Email:</strong></label>
                 <div class="input-group mb-4">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                     </div>
-                    <input type="email" id="email-login" class="form-control" placeholder="@exemplo.com">
-                </div>
-                <label for="confirmar-email-login"><strong>Confirmar Email:</strong></label>
-                <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                    </div>
-                    <input type="email" id="confirmar-email-login" class="form-control" placeholder="@exemplo.com">
-                </div>
-                <label for="senha-login"><strong>Senha:</strong></label>
-                <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-key-25"></i></span>
-                    </div>
-                    <input type="password" id="senha-login" class="form-control" placeholder="******">
-                </div>
-                <label for="confirmar-senha-login"><strong>Confirmar Senha:</strong></label>
-                <div class="input-group mb-4">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-key-25"></i></span>
-                    </div>
-                    <input type="password" id="confirmar-senha-login" class="form-control" placeholder="******">
+                    <input type="email" id="email" class="form-control" placeholder="@exemplo.com">
                 </div>
             </div>
-            <a href="./index.html" class="btn btn-warning form-control mb-3">Cadastrar</a>
+            <div class="form-group">
+                <label for="senha"><strong>Senha:</strong></label>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-key-25"></i></span>
+                    </div>
+                    <input type="password" id="senha" class="form-control" placeholder="******">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirmar-senha"><strong>Confirmar Senha:</strong></label>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-key-25"></i></span>
+                    </div>
+                    <input type="password" id="confirmar-senha" class="form-control" placeholder="******">
+                </div>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show d-none alert-campo-vazio" role="alert">
+                <span class="alert-inner--icon"><i class="ni ni-support-16"></i></span>
+                <span class="alert-inner--text"><strong> Favor digitar todos os campos</strong></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show d-none alert-senha-diferente" role="alert">
+                <span class="alert-inner--icon"><i class="ni ni-support-16"></i></span>
+                <span class="alert-inner--text"><strong>Senha diferentes</strong></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <button type="submit" href="./index.html" class="btn btn-warning form-control mb-3">Cadastrar</button>
         </form>
     </div>
     <!-- Argon Scripts -->
@@ -75,5 +96,7 @@
     <script src="../assets/vendor/chart.js/dist/Chart.extension.js"></script>
     <!-- Argon JS -->
     <script src="../assets/js/argon.js?v=1.2.0"></script>
+    <!-- Cadastrar JS -->
+    <script src="../js/cadastrar_usuario.js"></script>
 </body>
 </html>
