@@ -15,7 +15,7 @@ $(document).ready(function() {
                         db.splice(i, 1)
                     }
                 }
-                populaTabela()
+
             }
         }
     }
@@ -30,8 +30,8 @@ $(document).ready(function() {
             <td>${item.salario}</td>
             <td>${item.requisitos}</td>
             <td>
-            <a href="#editEmployeeModal"   class="edit"   data-toggle="modal" onclick="${editaRegistro(item.id)};">  <i class="material-icons" data-toggle="tooltip" title="Edit">   &#xE254;</i></a>
-            <a href="#" class="" data-toggle="modal" onclick="${excluirRegistro(item.id)};"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
+            <a href="#editEmployeeModal"   class="edit"   data-toggle="modal" ="${editaRegistro(item.id)};">  <i class="material-icons" data-toggle="tooltip" title="Edit">   &#xE254;</i></a>
+            <a href="#" class="delete" data-toggle="modal" ="${excluirRegistro(item.id)};"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
             </td>
         </tr>`)
         })
@@ -39,11 +39,12 @@ $(document).ready(function() {
     }
 
     function editaRegistro(id) {
-
+        alert('editando id')
+        alert(id)
         controle = id
         db.forEach(function(item) {
 
-                if (item.id == id) {
+                if (item.id === id) {
                     $("#txtId").val(id)
                     $("#txtFuncao").val(item.funcao)
                     $("#txtEscolaridade").val(item.escolaridade)
@@ -53,9 +54,11 @@ $(document).ready(function() {
             })
             //$("#editEmployeeModal").modal("show")
 
+
     }
 
     function insereVaga() {
+        alert()
         if (controle > 0) {
             $("#editEmployeeModal").modal("hide")
         }
@@ -110,5 +113,5 @@ $(document).ready(function() {
     })
 
     $("#tbnSalvar").click(insereVaga);
-    $("#tbnSalvarEdit").click(insereVaga)
+
 })
