@@ -10,7 +10,6 @@ onload = () => {
         }
     }
     btnPerfil.innerHTML = `
-            <i class="ni ni-circle-08"></i>
-            <span class="nav-link-inner--text">${usuarioSession.nome}</span>    
-        `;
+        <i class="ni ni-circle-08"></i>
+        <span class="nav-link-inner--text">${usuarioSession.nome}</span>`;
 }
