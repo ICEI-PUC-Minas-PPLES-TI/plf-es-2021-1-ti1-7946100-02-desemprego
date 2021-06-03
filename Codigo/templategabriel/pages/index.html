@@ -5,69 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-    <!-- Icons -->
-    <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="styleheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Page plugins -->
     <!--CSS-->
     <link rel="stylesheet" href="../css/style.css">
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>AcheiTi</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-default">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <!--LOGO-->
-                <a class="navbar-brand" href="#">LOGO</a>
-                <!--Botão Menu Responsivo-->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="./index.html">Logo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <!--Menu Mobile-->
-                <div class="collapse navbar-collapse" id="navbar-default">
-                    <div class="navbar-collapse-header">
-                        <div class="row">
-                            <!--Menu Mobile Logo-->
-                            <div class="col-6 collapse-brand">
-                                <a href="javascript:void(0)">
-                                    <img src="../assets/img/brand/blue.png">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex w-100">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Perfil
                                 </a>
-                            </div>
-                            <!--Menu Mobile Botão Fechar-->
-                            <div class="col-6 collapse-close">
-                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span></span>
-                                    <span></span>
-                                </button>
-                            </div>
-                        </div>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Candidate-se</a></li>
+                                    <li><a class="dropdown-item" href="#">Contrate</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-                    <!--Menu Opcoes-->
-                    <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link nav-link-icon confirma-login" id="navbar-default_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ni ni-circle-08"></i>
-                                <span class="nav-link-inner--text">Perfil</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-navbar" aria-labelledby="navbar-default_dropdown_1">
-                                <a class="dropdown-item" href="./pages_perfil_candidato/perfil_candidato_info.html">Candidate-se</a>
-                                <a class="dropdown-item" href="./pages_perfil_empresa/perfil_empresa_info.html">Contrate</a>
-                            </div>
-
-                        </li>
-                        <div class="alert alert-warning alert-dismissible fade show position-absolute d-none alert-login" style="z-index: 100;" role="alert">
-                            <span class="alert-inner--text">Ainda não fez <a class="text-white" href="../pages/login.html"><strong>Login</strong></a>?</span>
-                        </div>
-                    </ul>
+                    
                 </div>
             </div>
-        </nav>
+          </nav>
     </header>
     <main>
         <div class="container">
@@ -81,40 +52,31 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <button class="btn btn-warning"><i class="ni ni-curved-next"></i></button>
-                                                    </div>
-                                                    <input class="form-control" placeholder="Search" type="text">
-                                                    <div class="input-group-prepend">
-                                                        <div class="btn-group">
-                                                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-top-left-radius: 0; border-bottom-left-radius: 0;"></button>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="#">Vagas</a>
-                                                                <a class="dropdown-item" href="#">Notícias</a>
-                                                                <a class="dropdown-item" href="#">Cursos</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <button class="btn btn-primary" type="button" id="button-addon1">Pesquisar</button>
+                                                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</button>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                      <li><a class="dropdown-item" href="#">Notícias</a></li>
+                                                      <li><a class="dropdown-item" href="#">Vagas</a></li>
+                                                      <li><a class="dropdown-item" href="#">Empresas</a></li>
+                                                    </ul>
+                                                  </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-lg-2">
-
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <a class="card p-4" href="#">
-                                <h3 class="text-warning">Programador Front-end</h3>
+                                <h3 class="text-primary">Programador Front-end</h3>
                                 <p class="text-default">Nome Empresa -> Endereço</p>
                             </a>
                             <a class="card p-4" href="#">
-                                <h3 class="text-warning">Programador Front-end</h3>
+                                <h3 class="text-primary">Programador Front-end</h3>
                                 <p class="text-default">Nome Empresa -> Endereço</p>
                             </a>
                             <a class="card p-4" href="#">
-                                <h3 class="text-warning">Programador Front-end</h3>
+                                <h3 class="text-primary">Programador Front-end</h3>
                                 <p class="text-default">Nome Empresa -> Endereço</p>
                             </a>
                         </div>
@@ -128,27 +90,27 @@
                                 <a href="#" class="card-text text-default d-block py-2 side-bar-link">
                                     "Melhores tecnologias..."
                                     <br>
-                                    <strong class="text-warning">SiteX</strong>
+                                    <strong class="text-primary">SiteX</strong>
                                 </a>
                                 <a href="#" class="card-text text-default d-block py-2 side-bar-link">
                                     "Melhores tecnologias..."
                                     <br>
-                                    <strong class="text-warning">SiteX</strong>
+                                    <strong class="text-primary">SiteX</strong>
                                 </a>
                                 <a href="#" class="card-text text-default d-block py-2 side-bar-link">
                                     "Melhores tecnologias..."
                                     <br>
-                                    <strong class="text-warning">SiteX</strong>
+                                    <strong class="text-primary">SiteX</strong>
                                 </a>
                                 <a href="#" class="card-text text-default d-block py-2 side-bar-link">
                                     "Melhores tecnologias..."
                                     <br>
-                                    <strong class="text-warning">SiteX</strong>
+                                    <strong class="text-primary">SiteX</strong>
                                 </a>
                                 <a href="#" class="card-text text-default d-block py-2 side-bar-link">
                                     "Melhores tecnologias..."
                                     <br>
-                                    <strong class="text-warning">SiteX</strong>
+                                    <strong class="text-primary">SiteX</strong>
                                 </a>
                             </p>
                         </div>
@@ -160,17 +122,17 @@
                                 <a href="#" class="card-text text-default d-block py-2 side-bar-link">
                                     "Front-end"
                                     <br>
-                                    <strong class="text-warning">SiteX</strong>
+                                    <strong class="text-primary">SiteX</strong>
                                 </a>
                                 <a href="#" class="card-text text-default d-block py-2 side-bar-link">
                                     "React.js"
                                     <br>
-                                    <strong class="text-warning">SiteX</strong>
+                                    <strong class="text-primary">SiteX</strong>
                                 </a>
                                 <a href="#" class="card-text text-default d-block py-2 side-bar-link">
                                     "MySQL"
                                     <br>
-                                    <strong class="text-warning">SiteX</strong>
+                                    <strong class="text-primary">SiteX</strong>
                                 </a>
                             </p>
                         </div>
@@ -179,21 +141,10 @@
             </div>
         </div>
     </main>
-    <footer class="p-5 bg-default text-white">
+    <footer class="p-5 bg-primary text-white">
         footer
     </footer>
-    <!-- Argon Scripts -->
-    <!-- Core -->
-    <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-    <!-- Optional JS -->
-    <script src="../assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="../assets/vendor/chart.js/dist/Chart.extension.js"></script>
-    <!-- Argon JS -->
-    <script src="../assets/js/argon.js?v=1.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <!--Index JS-->
     <script src="../js/index.js"></script>
 </body>
