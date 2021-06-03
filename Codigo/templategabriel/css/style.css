@@ -2,6 +2,11 @@ header {
     margin-bottom: 20px;
 }
 
+.card a {
+    text-decoration: none !important;
+    color: black !important;
+}
+
 /* main {
     height: 100vh;
 } */
