@@ -1,0 +1,1 @@
+<?php require_once ("./Codigo/templategabriel/pages/index.html"); ?>
