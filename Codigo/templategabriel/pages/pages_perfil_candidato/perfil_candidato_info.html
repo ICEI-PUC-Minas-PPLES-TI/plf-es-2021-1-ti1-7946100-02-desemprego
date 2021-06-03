@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    
     <!-- Icons -->
     <link rel="stylesheet" href="../../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Page plugins -->
-    <!--CSS-->
+    <!--CSS--><link rel="stylesheet" type="text/css" href="../../css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="../../css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style_form_user.css"/>
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
     <title>AcheiTi</title>
@@ -24,7 +27,7 @@
         }
     </script>
 </head>
-<body>
+<body class="form-v10">
     <header>
         <nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-default">
             <div class="container">
@@ -87,73 +90,148 @@
                         <a href="./perfil_candidato_msg.html" class="d-block text-default">Mensagens</a>
                     </div>
                 </div>
-                <div class="col-12 col-lg-9">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <h1 class="card-title">Informações gerais:</h1>
-                                    <div class="form-group">
-                                        <label for="nome-perfil"><strong>Email:</strong></label>
-                                        <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                            </div>
-                                            <input type="email" id="email-perfil" class="form-control" placeholder="primeiro nome">
-                                        </div>
+                <div class="page-content col-12 col-lg-9">
+                    <div class="form-v10-content">
+                        <form class="form-detail" action="#" method="post" id="myform">
+                            <div class="form-left">				
+                                <h2>INFORMAÇÕES GERAIS</h2>
+                                <div class="form-row">						
+                                    <input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Email: vitor1235@gmail.com">
+                                </div>					
+                                <hr>
+                                <div class="form-row">
+                                    <select name="title">
+                                        <option class="option" value="title">- Área de atuação -</option>
+                                        <option class="option" value="agrarias">Ciências Agrárias</option>
+                                        <option class="option" value="biologicas">Ciências Biológicas</option>
+                                        <option class="option" value="saude">Ciências da Saúde</option>
+                                        <option class="option" value="exatasTerra">Ciências Exatas e da Terra</option>
+                                        <option class="option" value="engenharias">Engenharias</option>
+                                        <option class="option" value="sociaisAplicadas">Ciências Sociais Aplicadas</option>
+                                        <option class="option" value="letrasArte">Linguística Letras e Arte</option>
+                                        <option class="option" value="humanas">Ciências Humanas</option>
+                                    </select>
+                                    <span class="select-btn">
+                                          <i class="zmdi zmdi-chevron-down"></i>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-row form-row-1">
+                                        <input type="text" name="first_name" id="first_name" class="input-text" placeholder="Nome" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="nome-perfil"><strong>Área de atuação:</strong></label>
-                                        <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                            </div>
-                                            <input type="text" id="area-atuacao-perfil" class="form-control" placeholder="área de atuação">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nome-perfil"><strong>Nome:</strong></label>
-                                        <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                            </div>
-                                            <input type="text" id="nome-perfil" class="form-control" placeholder="primeiro nome">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nome-perfil"><strong>Sobrenome:</strong></label>
-                                        <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                            </div>
-                                            <input type="email" id="email-perfil" class="form-control" placeholder="primeiro nome">
-                                        </div>
+                                    <div class="form-row form-row-2">
+                                        <input type="text" name="last_name" id="last_name" class="input-text" placeholder="Sobrenome" required>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label for="nome-completo-perfil"><strong>Nome Completo:</strong></label>
-                                        <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                            </div>
-                                            <input type="text" id="nome-completo-perfil" class="form-control" placeholder="nome completo">
-                                        </div>
+                                <div class="form-row">
+                                    <select name="position">
+                                        <option value="cargo">Cargo</option>
+                                        <option value="candidato">Procurando Emprego / Sou Candidat@</option>
+                                        <option value="presidente">Presidete / CEO / Sóci@</option>
+                                        <option value="direcao">Diretor/a</option>
+                                        <option value="gerente">Gerente</option>
+                                        <option value="analista">Analista</option>
+                                        <option value="surpevisao">Supervisor/a</option>
+                                        <option value="treinee">Trainee</option>
+                                        <option value="estagio">Estagiári@</option>
+                                    </select>
+                                    <span class="select-btn">
+                                          <i class="zmdi zmdi-chevron-down"></i>
+                                    </span>
+                                </div>
+                                <div class="form-row">
+                                    <input type="text" name="company" class="company" id="company" placeholder="Empresa" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <input type="text" name="business" class="business" id="business" placeholder="Profissão" required>
+                                </div>
+                                <div class="form-row">
+                                    <select name="employees">
+                                            <option value="employees">Senioridade</option>
+                                            <option value="estagio">Estagiári@ / Treinee</option>
+                                            <option value="junior">Junior</option>
+                                            <option value="pleno">Pleno</option>
+                                            <option value="senior">Sênior</option>
+                                    </select>
+                                    <span class="select-btn">
+                                            <i class="zmdi zmdi-chevron-down"></i>
+                                    </span>
+                                </div>
+                                
+                            </div>
+                            <div class="form-right">
+                                <h2>INFORMAÇÕES PESSOAIS</h2>
+                                <div class="form-row">
+                                    <input type="text" name="street" class="street" id="street" placeholder="Endereço" required>
+                                </div>
+                                <div class="form-row">
+                                    <input type="text" name="additional" class="additional" id="additional" placeholder="Informação adicional" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-row form-row-1">
+                                        <select name="Estado">
+                                            <option value="">UF</option>
+                                            <option value="AC">AC</option>
+                                            <option value="">AL</option>
+                                            <option value="">AP</option>
+                                            <option value="">AM</option>
+                                            <option value="">BA</option>
+                                            <option value="">CE</option>
+                                            <option value="">DF</option>
+                                            <option value="">ES</option>
+                                            <option value="">GO</option>
+                                            <option value="">MA</option>
+                                            <option value="">MT</option>
+                                            <option value="">MS</option>
+                                            <option value="">MG</option>
+                                            <option value="">PA</option>
+                                            <option value="">PB</option>
+                                            <option value="">PR</option>
+                                            <option value="">PE</option>
+                                            <option value="">PI</option>
+                                            <option value="">RJ</option>
+                                            <option value="">RN</option>
+                                            <option value="">RS</option>
+                                            <option value="">RO</option>
+                                            <option value="">RP</option>
+                                            <option value="">SC</option>
+                                            <option value="">SP</option>
+                                            <option value="">SE</option>
+                                            <option value="">TO</option>			
+                                        </select>
+                                        <span class="select-btn">
+                                              <i class="zmdi zmdi-chevron-down"></i>
+                                        </span>
+                                    </div>
+                                    <div class="form-row form-row-2">
+                                        <input type="text" name="zip" class="zip" id="zip" placeholder="CEP" required>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label for="nome-completo-perfil"><strong>Experiências:</strong></label>
-                                        <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                            </div>
-                                            <input type="text" id="nome-completo-perfil" class="form-control" placeholder="nome completo">
-                                        </div>
+                                <div class="form-row">
+                                    <input type="text" class="cpf" id="cpf" placeholder="CPF">
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-row form-row-1">
+                                        <input type="text" name="code" class="code" id="code" placeholder="DDD" required>
                                     </div>
+                                    <div class="form-row form-row-2">
+                                        <input type="text" name="phone" class="phone" id="phone" placeholder="Número de Telefone" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-checkbox">
+                                    <label class="container"><p>Eu aceito os <a href="#" class="text">Termos e Condições</a> do site.</p>
+                                          <input type="checkbox" name="checkbox">
+                                          <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-row-last">
+                                    <input type="submit" name="register" class="register" id="btnCadastrar" value="Cadastrar">
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
