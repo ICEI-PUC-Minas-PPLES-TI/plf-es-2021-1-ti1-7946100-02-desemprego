@@ -18,7 +18,7 @@ onload = () => {
             }
             return;
         }
-        const userSession = JSON.parse(sessionStorage.getItem('usuario-login'));
+        const userSession = JSON.parse(localStorage.getItem('usuario-login'));
         if((userForm.value !== userSession.nome || userForm.value !== userSession.email) && senhaForm.value !== userSession.senha) {
             alertUsuarioInexistente.setAttribute('style', 'display: block !important');
             userForm.classList.add('is-invalid');
