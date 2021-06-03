@@ -1,1 +1,1 @@
-<?php require_once ("./Codigo/templategabriel/pages/index.html"); ?>
+<?php require_once ("index.html"); ?>
