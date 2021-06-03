@@ -154,12 +154,6 @@
                                 <table id="tabela" class="table">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>
-                                                <span class="custom-checkbox">
-                                                <input type="checkbox" id="selectAll">
-                                                <label for="selectAll"></label>
-                                            </span>
-                                            </th>
                                             <th><strong>Função</strong></th>
                                             <th><strong>Escolaridade</strong></th>
                                             <th><strong></strong>Salário</strong>
@@ -237,7 +231,6 @@
         function editaRegistro(id) {
             controle = id
             db.forEach(function(item) {
-
                 if (item.id == id) {
                     $("#txtFuncao").val(item.funcao)
                     $("#txtEscolaridade").val(item.escolaridade)
