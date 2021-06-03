@@ -31,47 +31,74 @@
 
 <body>
     <header>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+        <!-- Edit Modal HTML -->
+        <div id="addEmployeeModal" class="modal fade">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                    </div>
-                    <div class="modal-body">
-                        <!--Form-->
-                        <form>
-                            <div class="modal-header">
-                                <h4 class="modal-title">Editar Vaga</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <form>
+                        <div class="modal-header">
+                            <h4 class="modal-title">Cadastrar Vaga</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Função</label>
+                                <input id="funcao" type="text" class="form-control" required>
                             </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Função</label>
-                                    <input type="text" id="funcao" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Escolaridade</label>
-                                    <input type="text" id="escolaridade" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Salário</label>
-                                    <input type="text" id="salario" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Requisitos</label>
-                                    <textarea class="form-control" id="requisitos" required></textarea>
-                                </div>
+                            <div class="form-group">
+                                <label>Escolaridade</label>
+                                <input id="escolaridade" type="text" class="form-control" required>
                             </div>
-                            <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Sair">
-                                <input type="submit" class="btn btn-info salvar" id="btnSalvar" value="Salvar">
+                            <div class="form-group">
+                                <label>Salário</label>
+                                <input id="salario" type="number" class="form-control" required>
                             </div>
-                        </form>
-                    </div>
+                            <div class="form-group">
+                                <label>Requisitos</label>
+                                <textarea id="requisitos" class="form-control" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Sair">
+                            <input type="submit" id="tbnSalvar" class="btn btn-success salvar" value="Salvar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Edit Modal HTML -->
+        <div id="editEmployeeModal" class="modal fade">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <h4 class="modal-title">Editar Vaga</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <input id="hdId" type="hidden" class="form-control">
+                            <div class="form-group">
+                                <label>Função</label>
+                                <input id="txtFuncao" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Escolaridade</label>
+                                <input id="txtEscolaridade" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Salário</label>
+                                <input id="txtSalario" type="number" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Requisitos</label>
+                                <textarea id="txtRequisitos" class="form-control" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Sair">
+                            <input type="submit" id="tbnSalvarEdit" class="btn btn-success salvar" value="Salvar">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -145,7 +172,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="w-100 d-flex justify-content-end">
-                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal"> Cadastrar </button>
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addEmployeeModal"> Cadastrar </button>
                                     </div>
                                 </div>
                             </div>
@@ -154,12 +181,6 @@
                                 <table id="tabela" class="table">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>
-                                                <span class="custom-checkbox">
-                                                <input type="checkbox" id="selectAll">
-                                                <label for="selectAll"></label>
-                                            </span>
-                                            </th>
                                             <th><strong>Função</strong></th>
                                             <th><strong>Escolaridade</strong></th>
                                             <th><strong></strong>Salário</strong>
@@ -198,6 +219,8 @@
     <script src="../../js/jquery-3.6.0.min.js"></script>
     <!--Nosso javascript-->
     <!--<script src="../../js/perfil_empresa_vagas.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script>
         var db = JSON.parse(localStorage.getItem('cadastroVagas'));
@@ -225,34 +248,30 @@
 				<td>${item.salario}</td>
 				<td>${item.requisitos}</td>
 				<td>
-				<a href="#" class="edit" data-toggle="modal" onclick="javascript:editaRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#" class="delete" data-toggle="modal" onclick="javascript:removeRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
+				<a href="#editEmployeeModal" class="edit" data-toggle="modal" onclick="editaRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#" class="delete" data-toggle="modal" onclick="removeRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
 				</td>
 			</tr>`)
             })
             localStorage.setItem('cadastroVagas', JSON.stringify(db))
         }
 
-
         function editaRegistro(id) {
             controle = id
             db.forEach(function(item) {
-
                 if (item.id == id) {
                     $("#txtFuncao").val(item.funcao)
                     $("#txtEscolaridade").val(item.escolaridade)
                     $("#txtSalario").val(item.salario)
                     $("#txtRequisitos").val(item.requisitos)
                 }
+                //$("#editEmployeeModal").modal("show")
             })
-            $("#editEmployeeModal").modal("show")
-
         }
 
         function insereVaga() {
-            if (controle > 0) {
-                $("#editEmployeeModal").modal("hide")
-            }
+            let ctr = controle
+            if (controle > 0) {}
             let nId = 0
             if (db.length == 0) {
                 nId = 1
@@ -289,16 +308,20 @@
 
             localStorage.setItem('cadastroVagas', JSON.stringify(db))
             populaTabela()
+            if (ctr > 0) {
+                $("#editEmployeeModal").modal('hide');
+            }
         }
+
         var db = [];
         $(function() {
-            db = JSON.parse(localStorage.getItem('cadastroVagas'));
+            db = JSON.parse(localStorage.getItem('cadastroVagas'))
             if (db != null) {
                 populaTabela()
             } else
                 db = []
         })
-        $("#tbnSalvar").click(insereVaga);
+        $("#tbnSalvar").click(insereVaga)
         $("#tbnSalvarEdit").click(insereVaga);
     </script>
 </body>
