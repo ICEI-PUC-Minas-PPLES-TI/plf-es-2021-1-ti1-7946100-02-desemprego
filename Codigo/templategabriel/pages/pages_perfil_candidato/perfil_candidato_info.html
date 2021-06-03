@@ -96,11 +96,11 @@
                             <div class="form-left">				
                                 <h2>INFORMAÇÕES GERAIS</h2>
                                 <div class="form-row">						
-                                    <input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Email: vitor1235@gmail.com">
+                                    <input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Email:">
                                 </div>					
                                 <hr>
                                 <div class="form-row">
-                                    <select name="title">
+                                    <select id="area" name="title">
                                         <option class="option" value="title">- Área de atuação -</option>
                                         <option class="option" value="agrarias">Ciências Agrárias</option>
                                         <option class="option" value="biologicas">Ciências Biológicas</option>
@@ -124,7 +124,7 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <select name="position">
+                                    <select id="position" name="position">
                                         <option value="cargo">Cargo</option>
                                         <option value="candidato">Procurando Emprego / Sou Candidat@</option>
                                         <option value="presidente">Presidete / CEO / Sóci@</option>
@@ -148,7 +148,7 @@
                                 </div>                          
                                 
                                 <div class="form-row">
-                                    <select name="employees">
+                                    <select id="seniority" name="employees">
                                             <option value="employees">Senioridade</option>
                                             <option value="estagio">Estagiári@ / Treinee</option>
                                             <option value="junior">Junior</option>
@@ -171,35 +171,35 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="form-row form-row-1">
-                                        <select name="Estado">
+                                        <select id="estado" name="Estado">
                                             <option value="">UF</option>
-                                            <option value="AC">AC</option>
-                                            <option value="">AL</option>
-                                            <option value="">AP</option>
-                                            <option value="">AM</option>
-                                            <option value="">BA</option>
-                                            <option value="">CE</option>
-                                            <option value="">DF</option>
-                                            <option value="">ES</option>
-                                            <option value="">GO</option>
-                                            <option value="">MA</option>
-                                            <option value="">MT</option>
-                                            <option value="">MS</option>
-                                            <option value="">MG</option>
-                                            <option value="">PA</option>
-                                            <option value="">PB</option>
-                                            <option value="">PR</option>
-                                            <option value="">PE</option>
-                                            <option value="">PI</option>
-                                            <option value="">RJ</option>
-                                            <option value="">RN</option>
-                                            <option value="">RS</option>
-                                            <option value="">RO</option>
-                                            <option value="">RP</option>
-                                            <option value="">SC</option>
-                                            <option value="">SP</option>
-                                            <option value="">SE</option>
-                                            <option value="">TO</option>			
+                                            <option value="ac">AC</option>
+                                            <option value="al">AL</option>
+                                            <option value="ap">AP</option>
+                                            <option value="am">AM</option>
+                                            <option value="ba">BA</option>
+                                            <option value="ce">CE</option>
+                                            <option value="df">DF</option>
+                                            <option value="es">ES</option>
+                                            <option value="go">GO</option>
+                                            <option value="ma">MA</option>
+                                            <option value="mt">MT</option>
+                                            <option value="ms">MS</option>
+                                            <option value="mg">MG</option>
+                                            <option value="pa">PA</option>
+                                            <option value="pb">PB</option>
+                                            <option value="pr">PR</option>
+                                            <option value="pe">PE</option>
+                                            <option value="pi">PI</option>
+                                            <option value="rj">RJ</option>
+                                            <option value="rn">RN</option>
+                                            <option value="rs">RS</option>
+                                            <option value="ro">RO</option>
+                                            <option value="rp">RP</option>
+                                            <option value="sc">SC</option>
+                                            <option value="sp">SP</option>
+                                            <option value="se">SE</option>
+                                            <option value="to">TO</option>			
                                         </select>
                                         <span class="select-btn">
                                               <i class="zmdi zmdi-chevron-down"></i>
@@ -223,7 +223,7 @@
                                 </div>
                                 
                                 <div class="form-checkbox">
-                                    <label class="container"><p>Eu aceito os <a href="#" class="text">Termos e Condições</a> do site.</p>
+                                    <label class="container"><p>Eu aceito os <a href="" class="text">Termos e Condições</a> do site.</p>
                                           <input type="checkbox" name="checkbox">
                                           <span class="checkmark"></span>
                                     </label>
@@ -253,5 +253,6 @@
     <script src="../../assets/vendor/chart.js/dist/Chart.extension.js"></script>
     <!-- Argon JS -->
     <script src="../../assets/js/argon.js?v=1.2.0"></script>
+    <script src="../../assets/js/dados_usuario.js"></script>
 </body>
 </html>
