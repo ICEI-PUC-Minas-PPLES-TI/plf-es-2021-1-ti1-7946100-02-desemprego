@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/style_form_user.css"/>
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+     
     <title>AcheiTi</title>
     <script>
         onload = () => {
@@ -29,49 +31,29 @@
 </head>
 <body class="form-v10">
     <header>
-        <nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-default">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <!--LOGO-->
-                <a class="navbar-brand" href="../index.html">LOGO</a>
-                <!--Botão Menu Responsivo-->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="./index.html">Logo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <!--Menu Mobile-->
-                <div class="collapse navbar-collapse" id="navbar-default">
-                    <div class="navbar-collapse-header">
-                        <div class="row">
-                            <!--Menu Mobile Logo-->
-                            <div class="col-6 collapse-brand">
-                                <a href="javascript:void(0)">
-                                    <img src="../assets/img/brand/blue.png">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex w-100">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Perfil
                                 </a>
-                            </div>
-                            <!--Menu Mobile Botão Fechar-->
-                            <div class="col-6 collapse-close">
-                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span></span>
-                                    <span></span>
-                                </button>
-                            </div>
-                        </div>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Candidate-se</a></li>
+                                    <li><a class="dropdown-item" href="#">Contrate</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-                    <!--Menu Opcoes-->
-                    <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link nav-link-icon" href="./login.html" id="navbar-default_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ni ni-circle-08"></i>
-                                <span class="nav-link-inner--text">Perfil</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
-                                <a class="dropdown-item" href="../pages_perfil_candidato/perfil_candidato_info.html">Candidate-se</a>
-                                <a class="dropdown-item" href="../pages_perfil_empresa/perfil_empresa_info.html">Contrate</a>                                
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
-        </nav>
+          </nav>
     </header>
     <main>
         <div class="container">
