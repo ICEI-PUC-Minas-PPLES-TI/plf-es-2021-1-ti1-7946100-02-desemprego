@@ -20,14 +20,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <title>AcheiTi</title>
-    <script>
-        onload = () => {
-            const usuarioSession = sessionStorage.getItem('usuario-login');
-            if(!usuarioSession) {
-                location.href = "../index.html";
-            }
-        }
-    </script>
 </head>
 <body class="form-v10">
     <header>
@@ -44,16 +36,16 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Perfil
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Candidate-se</a></li>
-                                    <li><a class="dropdown-item" href="#">Contrate</a></li>
+                                <ul class="dropdown-menu dropdown-menu-navbar" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="../pages_perfil_candidato/perfil_candidato_info.html">Candidate-se</a></li>
+                                    <li><a class="dropdown-item" href="../pages_perfil_empresa/perfil_empresa_info.html">Contrate</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-          </nav>
+        </nav>
     </header>
     <main>
         <div class="container">
@@ -206,12 +198,12 @@
                                 
                                 <div class="form-checkbox">
                                     <label class="container"><p>Eu aceito os <a href="" class="text">Termos e Condições</a> do site.</p>
-                                          <input type="checkbox" name="checkbox">
+                                          <input type="checkbox" name="checkbox" required>
                                           <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="form-row-last">
-                                    <input type="submit" name="register" class="register" id="btnCadastrar" value="Cadastrar">
+                                    <input type="submit" name="register" class="register" id="btnCadastrar" value="Salvar Informações">
                                 </div>
                             </div>
                         </form>
@@ -226,6 +218,7 @@
     <!-- Argon Scripts -->
     <!-- Core -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="../../assets/js/dados_usuario.js"></script>
 </body>
 </html>

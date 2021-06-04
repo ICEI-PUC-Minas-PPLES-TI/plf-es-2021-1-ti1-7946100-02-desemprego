@@ -42,6 +42,7 @@ onload = () => {
             senha: senhaForm.value
         };
         const usuarioJSON = JSON.stringify(usuario);
+        localStorage.setItem('usuario-login', usuarioJSON);
         sessionStorage.setItem('usuario-login', usuarioJSON);
         location.href = '../pages/login.html';
     }
