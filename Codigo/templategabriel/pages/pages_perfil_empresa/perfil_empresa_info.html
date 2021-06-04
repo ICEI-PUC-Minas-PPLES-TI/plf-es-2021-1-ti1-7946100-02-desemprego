@@ -5,13 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style_empresa_info.css"/>
     <title>AcheiTi</title>
+    <script>
+        onload = () => {
+            const sessionUsuario = JSON.parse(sessionStorage.getItem('usuario-login'));
+            if(!sessionUsuario) {
+                location.href = "../index.html";
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="./index.html">Logo</a>
+                <a class="navbar-brand" href="../index.html">Logo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -51,44 +60,140 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-9">
-                    <div class="card">
-                        <div class="card-body">
-                            <h1 class="card-title">Informações pessoais:</h1>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
+                    <div class="page-content">
+                        <div class="form-v10-content">
+                            <form class="form-detail" action="#" method="post" id="myform">
+                                <div class="form-left">
+                                    <h2>Informações do Responsável</h2>
+                                    <div class="form-row">
+                                        
+                                        <span class="select-btn">
+                                              <i class="zmdi zmdi-chevron-down"></i>
+                                        </span>
+                                    </div>
                                     <div class="form-group">
-                                        <label for="nome-perfil"><strong>Nome:</strong></label>
-                                        <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                            </div>
-                                            <input type="text" id="nome-perfil" class="form-control" placeholder="primeiro nome">
+                                        <div class="form-row form-row-1">
+                                            <input type="text" name="first_name" id="first_name" class="input-text" placeholder="Primeiro nome" required>
+                                        </div>
+                                        <div class="form-row form-row-2">
+                                            <input type="text" name="last_name" id="last_name" class="input-text" placeholder="Último nome" required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label for="nome-completo-perfil"><strong>Nome Completo:</strong></label>
-                                        <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                            </div>
-                                            <input type="text" id="nome-completo-perfil" class="form-control" placeholder="nome completo">
-                                        </div>
+                                    <div class="form-row">
+                                        <select name="form-row">
+                                            <option value="Setor">Setor</option>
+                                            <option value="Administrativo">Administrativo</option>
+                                            <option value="Financeiro">Financeiro</option>
+                                            <option value="Recursos Humanos">Recursos Humanos</option>
+                                            <option value="Setor comercial">Setor Comercial</option>
+                                            <option value="Setor operacional">Setor Operacional</option>
+                                        </select>
+                                        <span class="select-btn">
+                                              <i class="zmdi zmdi-chevron-down"></i>
+                                        </span>
+                                    </div>
+                                    <div class="form-row">
+                                        <input type="text" name="Cargo" class="company" id="company" placeholder="Cargo" required>
+                                    </div>
+                                    <div class="form-row">
+                                        <input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Email Corporativo">
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
+                                <div class="form-right">
+                                    <h2>Informações da Empresa</h2>
+                                    <div class="form-row">
+                                        <input type="text" name="street" class="street" id="street" placeholder="Nome Fantasia" required>
+                                    </div>
+                                    <div class="form-row">
+                                        <input type="text" name="additional" class="additional" id="additional" placeholder="Razão social" required>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <select name="form-row">
+                                            <option value="Número de Funcionários">Número de Funcionários</option>
+                                            <option value="Faixa1">1 - 50</option>
+                                            <option value="Faixa2">51 - 100</option>
+                                            <option value="Faixa3">101 - 200</option>
+                                            <option value="Faixa4">201 - 400</option>
+                                            <option value="Faixa5">mais do que 400 funcionários</option>
+                                        </select>
+                                        <span class="select-btn">
+                                              <i class="zmdi zmdi-chevron-down"></i>
+                                        </span>
+                                    </div>
+                
+                                    <div class="form-row">
+                                        <input type="text" name="additional" class="additional" id="additional" placeholder="Endereço (Rua,Avenida,Alameda)" required>
+                                    </div>
                                     <div class="form-group">
-                                        <label for="nome-completo-perfil"><strong>Experiências:</strong></label>
-                                        <div class="input-group mb-4">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                                            </div>
-                                            <input type="text" id="nome-completo-perfil" class="form-control" placeholder="nome completo">
+                                        <div class="form-row form-row-1">
+                                            <input type="text" name="code" class="code" id="code" placeholder="N°" required>
+                                        </div>
+                                        
+                                        <div class="form-row form-row-2">
+                                            <input type="text" name="phone" class="phone" id="phone" placeholder="Bairro" required>
+                                        </div>
+                
+                                        <div class="form-row form-row-2">
+                                            <input type="text" name="code" class="code" id="code" placeholder="Logradouro" required>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="form-row form-row-1">
+                                            <input type="text" name="zip" class="zip" id="zip" placeholder="CEP" required>
+                                        </div>
+                                        <div class="form-row form-row-1">
+                                            <input type="text" name="phone" class="phone" id="phone" placeholder="Cidade" required>
+                                        </div>
+                                        <div class="form-row form-row-1">
+                                            <select name="form-row">
+                                                <option value="Estado">Estado</option>
+                                                <option value="Acre">Acre(AC)</option>
+                                                <option value="Alagoas">Alagoas(AL)</option>
+                                                <option value="Amapá">Amapá(AP)</option>
+                                                <option value="Amazonas(AM)">Amazonas(AM)</option>
+                                                <option value="Bahia">Bahia(BA)</option>
+                                                <option value="Ceara">Ceará(CE)</option>
+                                                <option value="Distrito Federal">Distrito Federal(DF)</option>
+                                                <option value="Espírito Santo">Espírito Santo(ES)</option>
+                                                <option value="Goiás">Goiás(GO)</option>
+                                                <option value="Mato Grosso">Mato Grosso(MT)</option>
+                                                <option value="Mato Grosso do Sul">Mato Grosso do Sul(MS)</option>
+                                                <option value="Minas Gerais">Minas Gerais(MG)</option>
+                                                <option value="Pará">Pará(PA)</option>
+                                                <option value="Paraíba">Paraíba(PB)</option>
+                                                <option value="Paraná">Paraná(PR)</option>
+                                                <option value="Piauí">Piauí(PI)</option>
+                                                <option value="Rio de Janeiro">Rio de Janeiro(RJ)</option>
+                                                <option value="Rio Grande do Norte">Rio Grande do Norte(RN)</option>
+                                                <option value="Rio Grande do Sul">Rio Grande do Sul(RS)</option>
+                                                <option value="Rondônia">Rondônia(RO)</option>
+                                                <option value="Roraima">Roraima(RR)</option>
+                                                <option value="Santa Catarina">Santa Catarina(SC)</option>
+                                                <option value="São Paulo">São Paulo(SP)</option>
+                                                <option value="Sergipe">Sergipe(SE)</option>
+                                                <option value="Tocantins">Tocantins(TO)</option>
+                                            </select>
+                                            <span class="select-btn">
+                                                  <i class="zmdi zmdi-chevron-down"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row form-row-1">
+                                        <input type="text" name="phone" class="phone" id="phone" placeholder="Telefone" required>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <label class="container"><p>I do accept the <a href="#" class="text">Terms and Conditions</a> of your site.</p>
+                                              <input type="checkbox" name="checkbox">
+                                              <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-row-last">
+                                        <input type="submit" name="register" class="register" value="Finalizar Cadastro">
+                                    </div>
+                                    
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -98,7 +203,7 @@
             </div>
         </div>
     </main>
-    <footer class="p-5 bg-default text-white">
+    <footer class="p-5 bg-primary text-white">
         footer
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

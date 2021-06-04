@@ -19,6 +19,15 @@ onload = () => {
             return;
         }
         const userLocalStorage = JSON.parse(localStorage.getItem('usuario-login'));
+        const userSession = JSON.parse(sessionStorage.getItem('usuario-login'));
+        if(!userSession) {
+            const userObject = {
+                nome: userLocalStorage.nome,
+                senha: userLocalStorage.senha
+            }
+            const userJSON = JSON.stringify(userObject);
+            sessionStorage.setItem('usuario-login', userJSON);
+        }
         if((userForm.value !== userLocalStorage.nome || userForm.value !== userLocalStorage.email) && senhaForm.value !== userLocalStorage.senha) {
             alertUsuarioInexistente.setAttribute('style', 'display: block !important');
             userForm.classList.add('is-invalid');
