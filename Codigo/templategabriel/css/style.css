@@ -7,9 +7,9 @@ header {
     color: black !important;
 }
 
-/* main {
-    height: 100vh;
-} */
+main {
+    margin-bottom: 50px;
+}
 
 .side-bar-link:hover {
     font-weight: 600;

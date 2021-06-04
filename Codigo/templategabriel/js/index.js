@@ -8,7 +8,6 @@ onload = () => {
         <i class="ni ni-circle-08"></i>
         <span class="nav-link-inner--text">${usuarioSession.nome}</span>`;
     }
-    console.log(usuarioSession);
     btnPerfil.onclick = () => {
         if(!usuarioSession) {
             dropdowMenuNavbar.classList.add('d-none');
