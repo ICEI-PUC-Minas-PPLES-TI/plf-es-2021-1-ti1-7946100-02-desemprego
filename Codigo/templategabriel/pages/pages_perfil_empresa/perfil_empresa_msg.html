@@ -15,14 +15,6 @@
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
     <title>AcheiTi</title>
-    <script>
-        onload = () => {
-            const usuarioSession = sessionStorage.getItem('usuario-login');
-            if(!usuarioSession) {
-                location.href = "../index.html";
-            }
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -40,8 +32,8 @@
                                     Perfil
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-navbar" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="./pages_perfil_candidato/perfil_candidato_info.html">Candidate-se</a></li>
-                                    <li><a class="dropdown-item" href="./pages_perfil_empresa/perfil_empresa_info.html">Contrate</a></li>
+                                    <li><a class="dropdown-item" href="../pages_perfil_candidato/perfil_candidato_info.html">Candidate-se</a></li>
+                                    <li><a class="dropdown-item" href="../pages_perfil_empresa/perfil_empresa_info.html">Contrate</a></li>
                                 </ul>
                             </li>
                             <div class="alert alert-light position-absolute alert-login d-none" role="alert">
