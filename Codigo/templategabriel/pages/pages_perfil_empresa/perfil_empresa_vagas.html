@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Page plugins -->
     <!--CSS-->
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/estilo.css">
     <title>AcheiTi</title>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
@@ -18,7 +18,7 @@
     <script>
         onload = () => {
             const sessionUsuario = JSON.parse(sessionStorage.getItem('usuario-login'));
-            if(!sessionUsuario) {
+            if (!sessionUsuario) {
                 location.href = "../index.html";
             }
         }
@@ -120,7 +120,7 @@
                     </div>
                 </div>
             </div>
-          </nav>
+        </nav>
     </header>
     <main style="margin-bottom: 300px;">
         <div class="container">
@@ -187,7 +187,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -241,6 +240,7 @@
         }
 
         function insereVaga() {
+            alert(controle)
             let ctr = controle
             if (controle > 0) {}
             let nId = 0
