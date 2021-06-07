@@ -1,1 +1,1 @@
-<?php header ('Location: ./Codigo/index.html'); ?>
+<?php header ('Location: ./Codigo/templategabriel/index.html'); ?>
