@@ -44,7 +44,7 @@ onload = () => {
         const usuarioJSON = JSON.stringify(usuario);
         localStorage.setItem('usuario-login', usuarioJSON);
         sessionStorage.setItem('usuario-login', usuarioJSON);
-        location.href = '../pages/login.html';
+        location.href = './login.html';
     }
 }
 

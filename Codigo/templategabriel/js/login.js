@@ -36,6 +36,6 @@ onload = () => {
             senhaForm.parentElement.parentElement.classList.add('has-danger');
             return;
         }
-        location.href = "../pages/index.html";
+        location.href = "./index.html";
     }
 }
