@@ -1,3 +1,71 @@
+function leDados(){
+    let strDados = localStorage.getItem('db');
+    let objDados = {};
+
+    // Se tem vai dar true, pegamos dados em strig e convertemos em objeto JSON
+    if (strDados) {
+        objDados = JSON.parse(strDados);
+    }
+    else{
+        objDados = { 
+            usuarios_candidato: [
+                { 
+                    id: 1,
+                    email: "fulano@pucminas.br",
+                    area: "- Área de atuação -",
+                    first_name: "Primeiro Nome",
+                    last_name: "Ultimo Nome",
+                    position: "Cargo",
+                    company: "Empresa",
+                    business: "Profissão",
+                    seniority: "Senoridade",
+                    street: "Endereço",
+                    additional: "Adicional",
+                    estado: "UF",
+                    zip: "Cep",
+                    cpf: "CPF",
+                    ddd: "DDD",
+                    phone: "Telefone"
+                }
+            ]
+        }
+    }
+    return objDados;
+}
+function salvaDados(dados){
+    localStorage.setItem('db', JSON.stringify(dados));
+}
+function incluirContato(){
+    //Ler os dados do localStorage
+    let objDados = leDados();
+    //Incluir um novo contato
+    let novoId = db.usuarios[db.usuarios.length - 1].id + 1;
+    let email = document.getElementById('your_email').value
+    let area = document.getElementById('area').value
+    let first_name = document.getElementById('first_name').value
+    let last_name = document.getElementById('last_name').value
+    let position = document.getElementById('position').value
+    let company = document.getElementById('company').value
+    let business = document.getElementById('business').value
+    let seniority = document.getElementById('seniority').value
+    let street = document.getElementById('street').value
+    let additional = document.getElementById('additional').value
+    let estado = document.getElementById('estado').value
+    let zip = document.getElementById('zip').value
+    let cpf = document.getElementById('cpf').value
+    let code = document.getElementById('code').value
+    let phone = document.getElementById('phone').value
+    //Salvar os dados no localStorage novamente
+}
+
+function imprimeDados(){
+    let 
+}
+
+//Configura os botoes
+
+document.getElementById('btnCadastrar').addEventListener('click', atualizarDados)
+
 onload = () => {
     your_email.value = localStorage.getItem('email');
     area.value = localStorage.getItem('area');
