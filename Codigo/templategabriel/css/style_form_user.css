@@ -1,6 +1,3 @@
-body {
-	margin:  0;
-}
 .page-content {
 	width: 100%;
 	margin:  0 auto;
@@ -78,7 +75,7 @@ body {
 }
 .form-v10-content .form-detail .form-left .form-group .form-row.form-row-1 {
 	width: 50%;
-	padding: 0 12px 0 60px;
+	padding: 0 12px 0 40px;
 }
 .form-v10-content .form-detail .form-left .form-group .form-row.form-row-2 {
 	width: 50%;
@@ -293,11 +290,25 @@ body {
   color: #f2f2f2;
   font-size: 16px;
 }
+#tela_informacoes{
+	margin-top: 15px;
+	border-radius: 10px;
+	background-color: #4835d4;
+	color: white;
+	font-weight: 200;
+	padding: 10px;
+}
+#dados{
+	margin-bottom: 10px;
+}
 
 /* Responsive */
 @media screen and (max-width: 1199px) {
 	.form-v10-content {
 		margin:  5px 20px;
+	}		
+	#tela_informacoes{
+		margin: 20px;		
 	}
 }
 @media screen and (max-width: 991px) and (min-width: 768px) {
@@ -306,7 +317,7 @@ body {
 		-o-flex-direction:  column;
 		-ms-flex-direction:  column;
 		-moz-flex-direction:  column;
-		-webkit-flex-direction:  column;
+		-webkit-flex-direction:  column;		
 	}
 	.form-v10-content .form-detail .form-left .form-group .form-row.form-row-1,
 	.form-v10-content .form-detail .form-left .form-group .form-row.form-row-2,
@@ -325,6 +336,7 @@ body {
 
 }
 @media screen and (max-width: 767px) {
+	
 	.form-v10-content .form-detail {
 		flex-direction:  column;
 		-o-flex-direction:  column;
@@ -341,6 +353,7 @@ body {
 	}
 }
 @media screen and (max-width: 575px) {
+	
 	.form-v10-content .form-detail .form-group {
 		flex-direction:  column;
 		-o-flex-direction:  column;
@@ -376,5 +389,5 @@ body {
 		padding-left: 0;
 		text-align: center;
 	    margin: 44px 0 30px;
-	}
+	}	
 }
