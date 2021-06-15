@@ -10,7 +10,7 @@ function leDados(){
         objDados = { 
             usuarios_candidato: [
                 { 
-                    id: 1,
+                    id: 0,
                     email: "fulano@pucminas.br",
                     area: "- Área de atuação -",
                     first_name: "Primeiro Nome",
@@ -38,47 +38,83 @@ function salvaDados(dados){
 function incluirContato(){
     //Ler os dados do localStorage
     let objDados = leDados();
-    //Incluir um novo contato
-    let novoId = objDados.usuarios_candidato[objDados.usuarios_candidato.length - 1].id + 1;
-    let novoemail = document.getElementById('your_email').value
-    let novoarea = document.getElementById('area').value
-    let novofirst_name = document.getElementById('first_name').value
-    let novolast_name = document.getElementById('last_name').value
-    let novoposition = document.getElementById('position').value
-    let novocompany = document.getElementById('company').value
-    let novobusiness = document.getElementById('business').value
-    let novoseniority = document.getElementById('seniority').value
-    let novostreet = document.getElementById('street').value
-    let novoadditional = document.getElementById('additional').value
-    let novoestado = document.getElementById('estado').value
-    let novozip = document.getElementById('zip').value
-    let novocpf = document.getElementById('cpf').value
-    let novocode = document.getElementById('code').value
-    let novophone = document.getElementById('phone').value
+    //Verificar se o id do sessionStorage e Igual a um id dentro do LocalStorage
+    let dadosSession = JSON.parse(sessionStorage.getItem('usuario-login')) ;
+    let idSession = dadosSession.id;
+    let index = -1;
+    for (i = 0; i < objDados.usuarios_candidato.length; i++){
+        if (objDados.usuarios_candidato[i].id == idSession){
+            index = i;            
+            break;
+        }
+    }
+    if (index != -1){
+        objDados.usuarios_candidato[index].email = document.getElementById('your_email').value
+        objDados.usuarios_candidato[index].area = document.getElementById('area').value
+        objDados.usuarios_candidato[index].first_name = document.getElementById('first_name').value
+        objDados.usuarios_candidato[index].last_name = document.getElementById('last_name').value
+        objDados.usuarios_candidato[index].position = document.getElementById('position').value
+        objDados.usuarios_candidato[index].company = document.getElementById('company').value
+        objDados.usuarios_candidato[index].business = document.getElementById('business').value
+        objDados.usuarios_candidato[index].seniority = document.getElementById('seniority').value
+        objDados.usuarios_candidato[index].street = document.getElementById('street').value
+        objDados.usuarios_candidato[index].additional = document.getElementById('additional').value
+        objDados.usuarios_candidato[index].estado = document.getElementById('estado').value
+        objDados.usuarios_candidato[index].zip = document.getElementById('zip').value
+        objDados.usuarios_candidato[index].cpf = document.getElementById('cpf').value
+        objDados.usuarios_candidato[index].ddd = document.getElementById('code').value
+        objDados.usuarios_candidato[index].phone = document.getElementById('phone').value
 
-    let novoUsuario = {
-        id: novoId,
-        email: novoemail,
-        area: novoarea,
-        first_name: novofirst_name,
-        last_name: novolast_name,
-        position: novoposition,
-        company: novocompany,
-        business: novobusiness,
-        seniority: novoseniority,
-        street: novostreet,
-        additional: novoadditional,
-        estado: novoestado,
-        zip: novozip,
-        cpf: novocpf,
-        ddd: novocode,
-        phone: novophone
-    };
-    objDados.usuarios_candidato.push(novoUsuario);
-    //Salvar os dados no localStorage novamente
-    salvaDados(objDados);
-    //Atualiza os dados da tela
-    imprimeDados();
+        //Atualizando no localStorage
+        localStorage.setItem('dbCandidato', JSON.stringify(objDados));
+        
+        //Atualiza os dados da tela
+        imprimeDados();
+        
+    }
+    else{
+        //Incluir um novo contato
+        let novoId = objDados.usuarios_candidato[objDados.usuarios_candidato.length - 1].id + 1;
+        let novoemail = document.getElementById('your_email').value
+        let novoarea = document.getElementById('area').value
+        let novofirst_name = document.getElementById('first_name').value
+        let novolast_name = document.getElementById('last_name').value
+        let novoposition = document.getElementById('position').value
+        let novocompany = document.getElementById('company').value
+        let novobusiness = document.getElementById('business').value
+        let novoseniority = document.getElementById('seniority').value
+        let novostreet = document.getElementById('street').value
+        let novoadditional = document.getElementById('additional').value
+        let novoestado = document.getElementById('estado').value
+        let novozip = document.getElementById('zip').value
+        let novocpf = document.getElementById('cpf').value
+        let novocode = document.getElementById('code').value
+        let novophone = document.getElementById('phone').value
+    
+        let novoUsuario = {
+            id: novoId,
+            email: novoemail,
+            area: novoarea,
+            first_name: novofirst_name,
+            last_name: novolast_name,
+            position: novoposition,
+            company: novocompany,
+            business: novobusiness,
+            seniority: novoseniority,
+            street: novostreet,
+            additional: novoadditional,
+            estado: novoestado,
+            zip: novozip,
+            cpf: novocpf,
+            ddd: novocode,
+            phone: novophone
+        };
+        objDados.usuarios_candidato.push(novoUsuario);
+        //Salvar os dados no localStorage novamente
+        salvaDados(objDados);
+        //Atualiza os dados da tela
+        imprimeDados();
+    }
 }
 
 function imprimeDados(){
@@ -148,42 +184,46 @@ function imprimeDados(){
 
 document.getElementById('btnCadastrar').addEventListener('click', incluirContato)
 
-onload = () => {
-    imprimeDados();
-    // email_login = sessionStorage.getItem('usuario-login');
-    // your_email.value = email_login.
+// onload = () => {
+//     imprimeDados();
+//     const sessionUsuario = JSON.parse(sessionStorage.getItem('usuario-login'));
+//             if(!sessionUsuario) {
+//                 location.href = "./index.html";
+//             }
+//     // email_login = sessionStorage.getItem('usuario-login');
+//     // your_email.value = email_login.
 
-    // area.value = localStorage.getItem('area');
-    // first_name.value = localStorage.getItem('first_name');
-    // last_name.value = localStorage.getItem('last_name')
-    // position.value = localStorage.getItem('position')
-    // company.value = localStorage.getItem('company')
-    // business.value = localStorage.getItem('business')
-    // seniority.value = localStorage.getItem('seniority')
-    // street.value = localStorage.getItem('adress')
-    // additional.value = localStorage.getItem('additional')
-    // estado.value = localStorage.getItem('estado')
-    // zip.value = localStorage.getItem('zip')
-    // cpf.value = localStorage.getItem('cpf')
-    // code.value = localStorage.getItem('ddd')
-    // phone.value = localStorage.getItem('phone')
+//     // area.value = localStorage.getItem('area');
+//     // first_name.value = localStorage.getItem('first_name');
+//     // last_name.value = localStorage.getItem('last_name')
+//     // position.value = localStorage.getItem('position')
+//     // company.value = localStorage.getItem('company')
+//     // business.value = localStorage.getItem('business')
+//     // seniority.value = localStorage.getItem('seniority')
+//     // street.value = localStorage.getItem('adress')
+//     // additional.value = localStorage.getItem('additional')
+//     // estado.value = localStorage.getItem('estado')
+//     // zip.value = localStorage.getItem('zip')
+//     // cpf.value = localStorage.getItem('cpf')
+//     // code.value = localStorage.getItem('ddd')
+//     // phone.value = localStorage.getItem('phone')
 
-    myform.onsubmit = (evento) =>{
-        evento.preventDefault();
-        // localStorage.setItem('email', your_email.value)
-        // localStorage.setItem('area', area.value)
-        // localStorage.setItem('first_name', first_name.value)
-        // localStorage.setItem('last_name', last_name.value)
-        // localStorage.setItem('position', position.value)
-        // localStorage.setItem('company', company.value)
-        // localStorage.setItem('business', business.value)
-        // localStorage.setItem('seniority', seniority.value)
-        // localStorage.setItem('adress', street.value)
-        // localStorage.setItem('additional', additional.value)
-        // localStorage.setItem('estado', estado.value)
-        // localStorage.setItem('zip', zip.value)
-        // localStorage.setItem('cpf', cpf.value)
-        // localStorage.setItem('ddd', code.value)
-        // localStorage.setItem('phone', phone.value) 
-    }
-}
+//     myform.onsubmit = (evento) =>{
+//         evento.preventDefault();
+//         // localStorage.setItem('email', your_email.value)
+//         // localStorage.setItem('area', area.value)
+//         // localStorage.setItem('first_name', first_name.value)
+//         // localStorage.setItem('last_name', last_name.value)
+//         // localStorage.setItem('position', position.value)
+//         // localStorage.setItem('company', company.value)
+//         // localStorage.setItem('business', business.value)
+//         // localStorage.setItem('seniority', seniority.value)
+//         // localStorage.setItem('adress', street.value)
+//         // localStorage.setItem('additional', additional.value)
+//         // localStorage.setItem('estado', estado.value)
+//         // localStorage.setItem('zip', zip.value)
+//         // localStorage.setItem('cpf', cpf.value)
+//         // localStorage.setItem('ddd', code.value)
+//         // localStorage.setItem('phone', phone.value) 
+//     }
+// }
