@@ -103,7 +103,7 @@
                                 <label>Requisitos</label>
                                 <textarea id="txtRequisitos" class="form-control" rows="3" required></textarea>
                             </div>
-                            <div class="form-group" id="status">
+                            <div class="form-group">
                                 <label for="validationCustom04" class="form-label">Status</label>
                                 <select class="form-select" id="selStatus" required>
                                     <option value="Aberta">Aberta</option>
@@ -251,6 +251,7 @@
 			</tr>`)
             })
             localStorage.setItem('cadastroVagas', JSON.stringify(db))
+            controle = 0
         }
 
         function editaRegistro(id) {
@@ -262,8 +263,11 @@
                     $("#txtSalario").val(item.salario)
                     $("#txtAtividades").val(item.atividades)
                     $("#txtRequisitos").val(item.requisitos)
-                        //$('#selStatus option:eq(1)').prop('selected', true)
-                    $('#selStatus option[value="' + item.status + '"]').attr('selected', 'selected')
+                    $("#selStatus > option").each(function(i) {
+                        if (this.value == item.status) {
+                            $('#selStatus option:eq(' + i.toString() + ')').prop('selected', true)
+                        }
+                    });
                 }
             })
         }
@@ -275,18 +279,25 @@
             } else {
                 nId = db[db.length - 1].id + 1
             }
-            let vaga = {
-                id: nId,
-                funcao: document.getElementById('funcao').value,
-                escolaridade: document.getElementById('escolaridade').value,
-                salario: document.getElementById('salario').value,
-                atividades: document.getElementById('atividades').value,
-                requisitos: document.getElementById('requisitos').value,
-                status: $('#selStatus option:selected').text(),
-                empresa: '1'
-            }
             if (controle == 0) {
+                let vaga = {
+                    id: nId,
+                    funcao: document.getElementById('funcao').value,
+                    escolaridade: document.getElementById('escolaridade').value,
+                    salario: document.getElementById('salario').value,
+                    atividades: document.getElementById('atividades').value,
+                    requisitos: document.getElementById('requisitos').value,
+                    status: $('#validationCustom04 option:selected').text(),
+                    empresa: '1'
+                }
                 db.push(vaga)
+                $("#id").val("")
+                $("#funcao").val("")
+                $("#escolaridade").val("")
+                $("#salario").val("")
+                $("#atividades").val("")
+                $("#requisitos").val("")
+                $('#validationCustom04').val('')
             } else {
                 db.forEach(function(item) {
                     if (item.id == controle) {
@@ -299,7 +310,6 @@
                     }
                 })
             }
-            controle = 0
             $("#txtId").val("")
             $("#txtFuncao").val("")
             $("#txtEscolaridade").val("")
@@ -307,9 +317,13 @@
             $("#txtAtividades").val("")
             $("#txtRequisitos").val("")
             $('#selStatus').val('')
-
             localStorage.setItem('cadastroVagas', JSON.stringify(db))
             populaTabela()
+        }
+
+        function chamaInserir() {
+            controle = 0
+            insereVaga()
         }
 
         var db = [];
@@ -320,7 +334,8 @@
             } else
                 db = []
         })
-        $("#tbnSalvar").click(insereVaga)
+
+        $("#tbnSalvar").click(chamaInserir)
         $("#tbnSalvarEdit").click(insereVaga);
     </script>
 </body>
