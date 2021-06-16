@@ -22,3 +22,25 @@ main {
 .nav-side:hover {
     background: #ced4da !important;
 }
+div.card-header{
+    background-color: white;
+}
+.vagas_info{
+    padding: 15px;
+    margin: 10px;
+}
+div > i {
+  color: #4835d4; 
+} 
+div#card_info{
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+a.titulo_vaga:hover{
+    color: #4835d4 !important;
+}
+.descricao_vaga{
+    color: grey;
+}
+
