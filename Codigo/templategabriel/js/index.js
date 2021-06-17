@@ -141,16 +141,16 @@ function imprimeDados(){
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-3">
-                            <i class="fas fa-map-marker-alt"> ${vaga.localidade}</i>
+                            <i class="fas fa-map-marker-alt"><span class="info_vagas"> ${vaga.localidade}</span></i>
                         </div>
                         <div class="col-6 col-md-3">
-                            <i class="fas fa-search-dollar"> R$${vaga.salario}</i>
+                            <i class="fas fa-search-dollar"><span class="info_vagas"> R$ ${vaga.salario}</span></i>
                         </div>
                         <div class="col-6 col-md-3">
-                            <i class="fas fa-filter"> ${vaga.filtro}</i>
+                            <i class="fas fa-filter"><span class="info_vagas"> ${vaga.filtro}</span></i>
                         </div>
                         <div class="col-6 col-md-3">
-                            <i class="far fa-clock"><strong> ${vaga.data}</strong></i>
+                            <i class="far fa-clock"><span class="info_vagas"> ${vaga.data}</span></i>
                         </div>
                     </div>
                 </div>
@@ -182,16 +182,16 @@ function imprimeVagas(){
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-3">
-                            <i class="fas fa-map-marker-alt"> ${vaga.localidade}</i>
+                            <i class="fas fa-map-marker-alt"><span class="info_vagas"> ${vaga.localidade}</span></i>
                         </div>
                         <div class="col-6 col-md-3">
-                            <i class="fas fa-search-dollar"> R$${vaga.salario}</i>
+                            <i class="fas fa-search-dollar"><span class="info_vagas"> R$ ${vaga.salario}</span></i>
                         </div>
                         <div class="col-6 col-md-3">
-                            <i class="fas fa-filter"> ${vaga.filtro}</i>
+                            <i class="fas fa-filter"><span class="info_vagas"> ${vaga.filtro}</span></i>
                         </div>
                         <div class="col-6 col-md-3">
-                            <i class="far fa-clock"><strong> ${vaga.data}</strong></i>
+                            <i class="far fa-clock"><span class="info_vagas"> ${vaga.data}</span></i>
                         </div>
                     </div>
                 </div>

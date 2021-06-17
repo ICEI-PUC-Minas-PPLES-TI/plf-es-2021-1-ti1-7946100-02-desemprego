@@ -36,7 +36,9 @@ div#card_info{
     padding-top: 15px;
     margin-bottom: 15px;
 }
-
+.info_vagas{
+    font-weight: 600;
+}
 a.titulo_vaga:hover{
     color: #4835d4 !important;
 }
