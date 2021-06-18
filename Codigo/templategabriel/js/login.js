@@ -13,6 +13,9 @@ onload = () => {
         if(!verificarCamposLogin(userForm, senhaForm, alertCampoVazio)) return;
 
         const userLocalStorage = JSON.parse(localStorage.getItem('usuario-cadastro'));
+
+        if(!userLocalStorage) return;
+
         console.log('ola', userLocalStorage);
         criarSession(userLocalStorage);
 
@@ -33,7 +36,7 @@ function logar(usuario, senha, alertUsuarioInexistente, userLocalStorage) {
             return false;
         }
         if((usuario.value === usuarioCadastrado.nome || usuario.value === usuarioCadastrado.email) && senha.value === usuarioCadastrado.senha) {
-            criarSession(usuario.value, senha.value, usuarioCadastrado.id);
+            criarSession(usuarioCadastrado.nome, senha.value, usuarioCadastrado.id);
         }
     }
     return true;

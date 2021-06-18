@@ -1,3 +1,5 @@
+let favoritosArray = [];
+
 function leDados(){
     let strDados = localStorage.getItem('cadastroVagas');
     let objDados = {};
@@ -131,12 +133,17 @@ function imprimeDados(){
             `<div class="row">
                 <div class="card container vagas_info">
                     <div class="row">
-                        <div class="">
+                        <div class="col-6">
                             <h5><a class="titulo_vaga" href="#">${vaga.funcao}</a></h5>
                             <p class="empresa">${vaga.empresa}<br>Requisitos: ${vaga.requisitos}</p>
                             <p class="descricao_vaga">
                                 ${vaga.atividades}
                             </p>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-outline-primary btn-interesse ${vaga.id}">Adcionar vaga</button>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -158,6 +165,7 @@ function imprimeDados(){
         }
     }
     card_info.innerHTML = strTexto;
+    adicionarVagaFavorita();
 }
 function imprimeVagas(){
     let objDados = leDados();
@@ -172,13 +180,18 @@ function imprimeVagas(){
             `<div class="row">
                 <div class="card container vagas_info">
                     <div class="row">
-                        <div class="">
-                            <h5><a class="titulo_vaga" href="#">${vaga.funcao}</a></h5>
-                            <p class="empresa">${vaga.empresa}<br>Requisitos: ${vaga.requisitos}</p>
-                            <p class="descricao_vaga">
-                                ${vaga.atividades}
-                            </p>
+                        <div class="col-6">
+                        <h5><a class="titulo_vaga" href="#">${vaga.funcao}</a></h5>
+                        <p class="empresa">${vaga.empresa}<br>Requisitos: ${vaga.requisitos}</p>
+                        <p class="descricao_vaga">
+                            ${vaga.atividades}
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-outline-primary btn-interesse ${vaga.id}">Adcionar vaga</button>
                         </div>
+                    </div>
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-3">
@@ -214,7 +227,7 @@ onload = () => {
     imprimeVagas();
     
     menuUsuario(usuarioSession);
-    exibirCampoVagas();
+    adicionarVagaFavorita();
 }
 
 function menuUsuario(usuarioSession) {
@@ -234,20 +247,21 @@ function menuUsuario(usuarioSession) {
     }
 }
 
-function exibirCampoVagas() {
-    const campoVagas = document.querySelector('.campo-vagas');
-    const arrayVagas = JSON.parse(localStorage.getItem('cadastroVagas'));
-    const div = criarDiv();
-    campoVagas.appendChild(div);
+function adicionarVagaFavorita() {
+    const todosBtnFavorito = document.querySelectorAll('.btn-interesse');
 
-    for(let vaga of arrayVagas) {
-        const a = criarA();
-        a.setAttribute('class', 'card p-4 mb-3');
-        a.innerHTML = `
-        <h3 class="text-primary">${vaga.funcao}</h3>
-        <p class="text-default">Nome empresa -> Endereço</p>
-        `;
-        div.appendChild(a);
+    for(let btnFavorito of todosBtnFavorito) {
+        btnFavorito.addEventListener("click", (e) => {
+            const el = e.target;
+            let objDados = leDados();
+            for(let obj of objDados) {
+                if(el.classList.contains(String(obj.id))) {
+                    favoritosArray.push({...obj});
+                    localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
+                }
+            }
+            console.log(objDados);
+        });
     }
 }
 
