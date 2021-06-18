@@ -1,4 +1,9 @@
+const listaFavoritos = JSON.parse(localStorage.getItem('favoritos'));
 let favoritosArray = [];
+if(listaFavoritos) {
+    favoritosArray = [...listaFavoritos];
+}
+
 
 function leDados(){
     let strDados = localStorage.getItem('cadastroVagas');
@@ -147,9 +152,9 @@ function imprimeDados(){
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 col-md-3">
+                        <!--<div class="col-6 col-md-3">
                             <i class="fas fa-map-marker-alt"><span class="info_vagas"> ${vaga.localidade}</span></i>
-                        </div>
+                        </div>-->
                         <div class="col-6 col-md-3">
                             <i class="fas fa-search-dollar"><span class="info_vagas"> R$ ${vaga.salario}</span></i>
                         </div>
@@ -182,7 +187,7 @@ function imprimeVagas(){
                     <div class="row">
                         <div class="col-6">
                         <h5><a class="titulo_vaga" href="#">${vaga.funcao}</a></h5>
-                        <p class="empresa">${vaga.empresa}<br>Requisitos: ${vaga.requisitos}</p>
+                        <p class="empresa">Requisitos: ${vaga.requisitos}</p>
                         <p class="descricao_vaga">
                             ${vaga.atividades}
                         </p>
@@ -194,9 +199,9 @@ function imprimeVagas(){
                     </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 col-md-3">
+                    <!--<div class="col-6 col-md-3">
                             <i class="fas fa-map-marker-alt"><span class="info_vagas"> ${vaga.localidade}</span></i>
-                        </div>
+                        </div>-->
                         <div class="col-6 col-md-3">
                             <i class="fas fa-search-dollar"><span class="info_vagas"> R$ ${vaga.salario}</span></i>
                         </div>
@@ -249,14 +254,15 @@ function menuUsuario(usuarioSession) {
 
 function adicionarVagaFavorita() {
     const todosBtnFavorito = document.querySelectorAll('.btn-interesse');
-
+    const usuarioSession = sessionStorage.getItem('usuario-login');
+    const id_usuario = JSON.parse(usuarioSession).id;
     for(let btnFavorito of todosBtnFavorito) {
         btnFavorito.addEventListener("click", (e) => {
             const el = e.target;
             let objDados = leDados();
             for(let obj of objDados) {
                 if(el.classList.contains(String(obj.id))) {
-                    favoritosArray.push({...obj});
+                    favoritosArray.push({...obj, id_usuario: id_usuario});
                     localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
                 }
             }
