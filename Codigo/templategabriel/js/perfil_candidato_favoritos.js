@@ -9,10 +9,9 @@ function imprimirFavoritos(listaFavoritos, id_usuario) {
     const pageContent = document.querySelector('.page_content');
     let str;
     for(let favorito of listaFavoritos) {
-        console.log(favorito);
         if(id_usuario === favorito.id_usuario) {
             str += 
-            `<div class="row d-block">
+            `
                 <div class="card p-3 w-100 mb-4">
                     <div class="row">
                         <div class="">
@@ -38,7 +37,8 @@ function imprimirFavoritos(listaFavoritos, id_usuario) {
                         </div>
                     </div>
                 </div>
-            </div>`
+            </div>
+        `
         }
     }
     pageContent.innerHTML = str;
