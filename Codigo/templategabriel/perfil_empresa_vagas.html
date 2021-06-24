@@ -66,7 +66,7 @@
                             <div class="form-group" id="filtro">
                                 <label for="validationCustom03" class="form-label">Filtro</label>
                                 <select class="form-select" id="validationCustom03" required>
-                                    <option value="Mais Experiente">Geral</option>
+                                    <option value="Geral">Geral</option>
                                     <option value="Mais Experiente">Mais Experiente</option>
                                     <option value="Outras Culturas">Outras Culturas</option>
                                     <option value="Primeira Oportunidade">Primeira Oportunidade</option>
@@ -131,7 +131,7 @@
                             <div class="form-group">
                                 <label for="validationCustom03" class="form-label">Filtro</label>
                                 <select class="form-select" id="selFiltro" required>
-                                    <option value="Mais Experiente">Geral</option>
+                                    <option value="Geral">Geral</option>
                                     <option value="Mais Experiente">Mais Experiente</option>
                                     <option value="Outras Culturas">Outras Culturas</option>
                                     <option value="Primeira Oportunidade">Primeira Oportunidade</option>
@@ -344,9 +344,9 @@
                 $("#atividades").val("")
                 $("#requisitos").val("")
                 $("#localidade").val("")
-                $("#datavalidade").val()
-                $('#validationCustom03 option:selected').text('')
-                $('#validationCustom04  option:selected').text('')
+                $("#datavalidade").val("")
+                $('#validationCustom03 option:selected').prop('selected', false);
+                $('#validationCustom04 option:selected').prop('selected', false);
             } else {
                 db.forEach(function(item) {
                     if (item.id == controle) {
@@ -370,8 +370,8 @@
             $("#txtRequisitos").val("")
             $("#txtLocalidade").val("")
             $("#txtDatavalidade").val("")
-            $("#txtFiltro").text('')
-            $('#selStatus').text('')
+                // $("#selFiltro").text('')
+                // $('#selStatus').text('')
             localStorage.setItem('cadastroVagas', JSON.stringify(db))
             populaTabela()
         }
