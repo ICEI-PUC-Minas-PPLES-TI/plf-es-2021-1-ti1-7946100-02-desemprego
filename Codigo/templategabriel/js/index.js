@@ -8,6 +8,7 @@ if(listaFavoritos) {
 function leDados(){
     let strDados = localStorage.getItem('cadastroVagas');
     let objDados = {};
+    let arrayDadosTeste = [];
     if (strDados){
         objDados = JSON.parse(strDados);
     }
@@ -117,7 +118,7 @@ function leDados(){
                 filtro: "Geral",
                 data: "19/07/2021"
             }
-        ]
+        ];
     }
     return objDados;
 }
@@ -137,22 +138,18 @@ function imprimeDados(){
             strTexto += 
             `<div class="row">
                 <div class="card container vagas_info">
-                    <div class="row">
-                        <div class="col-6">
-                            <h5><a class="titulo_vaga" href="#">${vaga.funcao}</a></h5>
-                            <p class="empresa">${vaga.empresa}<br>Requisitos: ${vaga.requisitos}</p>
-                            <p class="descricao_vaga">
-                                ${vaga.atividades}
-                            </p>
-                        </div>
-                        <div class="col-6">
-                            <div class="d-flex justify-content-end">
-                                <button class="btn btn-outline-primary btn-interesse ${vaga.id}">Adcionar vaga</button>
-                            </div>
-                        </div>
+                    <div class="mb-4 d-flex justify-content-between">
+                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
+                        <button class="btn btn-danger btn-interesse ${vaga.id}"><i class="fas fa-heart"></i></button>
+                    </div>
+                    <div class="mb-4">
+                        <p class="empresa text-justify">Requisitos: ${vaga.requisitos}</p>
+                        <p class="descricao_vaga text-justify">
+                            ${vaga.atividades}
+                        </p>
                     </div>
                     <div class="row">
-                        <!--<div class="col-6 col-md-3">
+                    <!--<div class="col-6 col-md-3">
                             <i class="fas fa-map-marker-alt"><span class="info_vagas"> ${vaga.localidade}</span></i>
                         </div>-->
                         <div class="col-6 col-md-3">
@@ -184,19 +181,15 @@ function imprimeVagas(){
             strTexto += 
             `<div class="row">
                 <div class="card container vagas_info">
-                    <div class="row">
-                        <div class="col-6">
-                        <h5><a class="titulo_vaga" href="#">${vaga.funcao}</a></h5>
-                        <p class="empresa">Requisitos: ${vaga.requisitos}</p>
-                        <p class="descricao_vaga">
+                    <div class="mb-4 d-flex justify-content-between">
+                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
+                        <button class="btn btn-danger btn-interesse ${vaga.id}"><i class="fas fa-heart"></i></button>
+                    </div>
+                    <div class="mb-4">
+                        <p class="empresa text-justify">Requisitos: ${vaga.requisitos}</p>
+                        <p class="descricao_vaga text-justify">
                             ${vaga.atividades}
                         </p>
-                    </div>
-                    <div class="col-6">
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-outline-primary btn-interesse ${vaga.id}">Adcionar vaga</button>
-                        </div>
-                    </div>
                     </div>
                     <div class="row">
                     <!--<div class="col-6 col-md-3">
@@ -230,9 +223,24 @@ document.getElementById('filtro_info').addEventListener('change', imprimeDados);
 onload = () => {
     const usuarioSession = JSON.parse(sessionStorage.getItem('usuario-login'));
     imprimeVagas();
-    
+
+
     menuUsuario(usuarioSession);
+    selecionarVaga();
     adicionarVagaFavorita();
+    
+}
+
+
+function selecionarVaga() {
+    const linkVagas = document.querySelectorAll('.titulo_vaga');
+    console.log(linkVagas);
+    for(let linkVaga of linkVagas) {
+        linkVaga.addEventListener("click", function(e) {
+            sessionStorage.setItem("vaga-info", JSON.stringify(linkVaga.id));
+            location.href = "index_vaga_info.html";
+        });
+    }
 }
 
 function menuUsuario(usuarioSession) {
@@ -254,6 +262,7 @@ function menuUsuario(usuarioSession) {
 
 function adicionarVagaFavorita() {
     const todosBtnFavorito = document.querySelectorAll('.btn-interesse');
+    console.log(todosBtnFavorito);
     const usuarioSession = sessionStorage.getItem('usuario-login');
     const id_usuario = JSON.parse(usuarioSession).id;
     for(let btnFavorito of todosBtnFavorito) {
