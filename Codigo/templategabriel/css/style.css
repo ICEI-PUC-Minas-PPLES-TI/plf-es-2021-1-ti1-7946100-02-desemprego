@@ -32,6 +32,24 @@ div.card-header{
 div > i {
   color: #4835d4; 
 } 
+.explicacao[data-tooltip]{
+    position: relative;
+}
+.explicacao[data-tooltip]::after{
+    display: none;
+    position: absolute;
+    top: -35px;
+    padding: 5px;
+    border-radius: 3px;
+    left: calc(100% + -100px);
+    content: attr(data-tooltip);
+    white-space: nowrap;
+    background-color: #4835d4;
+    color: White;
+}
+.explicacao[data-tooltip]:hover::after{
+    display: block;
+}
 div#card_info{
     padding-top: 15px;
     margin-bottom: 15px;
