@@ -27,7 +27,7 @@
     <header>
         <!-- Edit Modal HTML -->
         <div id="addEmployeeModal" class="modal fade">
-            <div class="modal-dialog modal-">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <form>
                         <div class="modal-header">
@@ -55,6 +55,23 @@
                                 <label>Requisitos</label>
                                 <textarea id="requisitos" class="form-control" rows="3" required></textarea>
                             </div>
+                            <div class="form-group">
+                                <label>Localidade</label>
+                                <input id="localidade" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Data Validade</label>
+                                <input id="datavalidade" type="date" class="form-control" required>
+                            </div>
+                            <div class="form-group" id="filtro">
+                                <label for="validationCustom03" class="form-label">Filtro</label>
+                                <select class="form-select" id="validationCustom03" required>
+                                    <option value="Geral">Geral</option>
+                                    <option value="Mais Experiente">Mais Experiente</option>
+                                    <option value="Outras Culturas">Outras Culturas</option>
+                                    <option value="Primeira Oportunidade">Primeira Oportunidade</option>
+                             </select>
+                            </div>
                             <div class="form-group" id="status">
                                 <label for="validationCustom04" class="form-label">Status</label>
                                 <select class="form-select" id="validationCustom04" required>
@@ -74,7 +91,7 @@
         </div>
         <!-- Edit Modal HTML -->
         <div id="editEmployeeModal" class="modal fade">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <form>
                         <div class="modal-header">
@@ -102,6 +119,23 @@
                             <div class="form-group">
                                 <label>Requisitos</label>
                                 <textarea id="txtRequisitos" class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Localidade</label>
+                                <input id="txtLocalidade" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Data Validade</label>
+                                <input id="txtDatavalidade" type="date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="validationCustom03" class="form-label">Filtro</label>
+                                <select class="form-select" id="selFiltro" required>
+                                    <option value="Geral">Geral</option>
+                                    <option value="Mais Experiente">Mais Experiente</option>
+                                    <option value="Outras Culturas">Outras Culturas</option>
+                                    <option value="Primeira Oportunidade">Primeira Oportunidade</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="validationCustom04" class="form-label">Status</label>
@@ -184,6 +218,7 @@
                                             <th><strong>Função</strong></th>
                                             <th><strong>Escolaridade</strong></th>
                                             <th><strong>Salário</strong></th>
+                                            <th><strong>Localidade</strong></th>
                                             <th><strong>Status</strong></th>
                                             <th><strong>Ação</strong></th>
                                         </tr>
@@ -243,6 +278,7 @@
                 <td>${item.funcao}</td>
 				<td>${item.escolaridade}</td>
 				<td>${item.salario}</td>
+				<td>${item.localidade}</td>
 				<td>${item.status}</td>
 				<td>
 				<a href="#editEmployeeModal" class="edit" data-toggle="modal" onclick="editaRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -263,6 +299,13 @@
                     $("#txtSalario").val(item.salario)
                     $("#txtAtividades").val(item.atividades)
                     $("#txtRequisitos").val(item.requisitos)
+                    $("#txtLocalidade").val(item.localidade)
+                    $("#txtDatavalidade").val((item.datavalidade))
+                    $("#selFiltro > option").each(function(i) {
+                        if (this.value == item.filtro) {
+                            $('#selFiltro option:eq(' + i.toString() + ')').prop('selected', true)
+                        }
+                    });
                     $("#selStatus > option").each(function(i) {
                         if (this.value == item.status) {
                             $('#selStatus option:eq(' + i.toString() + ')').prop('selected', true)
@@ -287,6 +330,9 @@
                     salario: document.getElementById('salario').value,
                     atividades: document.getElementById('atividades').value,
                     requisitos: document.getElementById('requisitos').value,
+                    localidade: document.getElementById('localidade').value,
+                    datavalidade: document.getElementById('datavalidade').value,
+                    filtro: $('#validationCustom03 option:selected').text(),
                     status: $('#validationCustom04 option:selected').text(),
                     empresa: '1'
                 }
@@ -297,7 +343,10 @@
                 $("#salario").val("")
                 $("#atividades").val("")
                 $("#requisitos").val("")
-                $('#validationCustom04').val('')
+                $("#localidade").val("")
+                $("#datavalidade").val("")
+                $('#validationCustom03 option:selected').prop('selected', false);
+                $('#validationCustom04 option:selected').prop('selected', false);
             } else {
                 db.forEach(function(item) {
                     if (item.id == controle) {
@@ -306,6 +355,9 @@
                         item.salario = $("#txtSalario").val()
                         item.atividades = $("#txtAtividades").val()
                         item.requisitos = $("#txtRequisitos").val()
+                        item.localidade = $("#txtLocalidade").val()
+                        item.datavalidade = $("#txtDatavalidade").val()
+                        item.filtro = $('#selFiltro option:selected').text()
                         item.status = $('#selStatus option:selected').text()
                     }
                 })
@@ -316,7 +368,10 @@
             $("#txtSalario").val("")
             $("#txtAtividades").val("")
             $("#txtRequisitos").val("")
-            $('#selStatus').val('')
+            $("#txtLocalidade").val("")
+            $("#txtDatavalidade").val("")
+                // $("#selFiltro").text('')
+                // $('#selStatus').text('')
             localStorage.setItem('cadastroVagas', JSON.stringify(db))
             populaTabela()
         }

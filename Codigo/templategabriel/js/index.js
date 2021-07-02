@@ -1,10 +1,16 @@
-function leDados(){
+const listaFavoritos = JSON.parse(localStorage.getItem('favoritos'));
+let favoritosArray = [];
+if (listaFavoritos) {
+    favoritosArray = [...listaFavoritos];
+}
+
+
+function leDados() {
     let strDados = localStorage.getItem('cadastroVagas');
-    let objDados = {};
-    if (strDados){
+    let objDados;
+    if (strDados) {
         objDados = JSON.parse(strDados);
-    }
-    else{
+    } else {
         objDados = [
             {
                 id: 0,
@@ -110,39 +116,43 @@ function leDados(){
                 filtro: "Geral",
                 data: "19/07/2021"
             }
-        ]
+        ];
+        localStorage.setItem('cadastroVagas', JSON.stringify(objDados));
     }
     return objDados;
 }
-function salvaDados(dados){
+
+function salvaDados(dados) {
     localStorage.setItem('cadastroVagas', JSON.stringify(dados));
 }
-function imprimeDados(){
+
+function imprimeDados() {
     let objDados = leDados();
     let card_info = document.getElementById('card_info');
     let strTexto = '';
     let filtro_info = document.getElementById('filtro_info').value;
-    
-    
-    for (i = 0; i < objDados.length; i++){
+
+
+    for (i = 0; i < objDados.length; i++) {
         const vaga = objDados[i];
-        if (vaga.filtro == filtro_info){
-            strTexto += 
-            `<div class="row">
+        if (vaga.filtro == filtro_info) {
+            strTexto +=
+                `<div class="row">
                 <div class="card container vagas_info">
-                    <div class="row">
-                        <div class="">
-                            <h5><a class="titulo_vaga" href="#">${vaga.funcao}</a></h5>
-                            <p class="empresa">${vaga.empresa}<br>Requisitos: ${vaga.requisitos}</p>
-                            <p class="descricao_vaga">
-                                ${vaga.atividades}
-                            </p>
-                        </div>
+                    <div class="mb-4 d-flex justify-content-between">
+                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
+                        <button class="btn btn-danger btn-interesse ${vaga.id}"><i class="fas fa-heart"></i></button>
+                    </div>
+                    <div class="mb-4">
+                        <p class="empresa text-justify">Requisitos: ${vaga.requisitos}</p>
+                        <p class="descricao_vaga text-justify">
+                            ${vaga.atividades}
+                        </p>
                     </div>
                     <div class="row">
-                        <div class="col-6 col-md-3">
+                    <!--<div class="col-6 col-md-3">
                             <i class="fas fa-map-marker-alt"><span class="info_vagas"> ${vaga.localidade}</span></i>
-                        </div>
+                        </div>-->
                         <div class="col-6 col-md-3">
                             <i class="fas fa-search-dollar"><span class="info_vagas"> R$ ${vaga.salario}</span></i>
                         </div>
@@ -154,36 +164,39 @@ function imprimeDados(){
                         </div>
                     </div>
                 </div>
-            </div>`;            
+            </div>`;
         }
     }
     card_info.innerHTML = strTexto;
+    selecionarVaga();
+    adicionarVagaFavorita();
 }
-function imprimeVagas(){
+function imprimeVagas() {
     let objDados = leDados();
     let card_info = document.getElementById('card_info');
     let strTexto = '';
     let filtro_info = "Geral"
-    
-    for (i = 0; i < objDados.length; i++){
+
+    for (i = 0; i < objDados.length; i++) {
         const vaga = objDados[i];
-        if (vaga.filtro == filtro_info){
-            strTexto += 
-            `<div class="row">
+        if (vaga.filtro == filtro_info) {
+            strTexto +=
+                `<div class="row">
                 <div class="card container vagas_info">
-                    <div class="row">
-                        <div class="">
-                            <h5><a class="titulo_vaga" href="#">${vaga.funcao}</a></h5>
-                            <p class="empresa">${vaga.empresa}<br>Requisitos: ${vaga.requisitos}</p>
-                            <p class="descricao_vaga">
-                                ${vaga.atividades}
-                            </p>
-                        </div>
+                    <div class="mb-4 d-flex justify-content-between">
+                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
+                        <button class="btn btn-danger btn-interesse ${vaga.id}"><i class="fas fa-heart"></i></button>
+                    </div>
+                    <div class="mb-4">
+                        <p class="empresa text-justify">Requisitos: ${vaga.requisitos}</p>
+                        <p class="descricao_vaga text-justify">
+                            ${vaga.atividades}
+                        </p>
                     </div>
                     <div class="row">
-                        <div class="col-6 col-md-3">
+                    <!--<div class="col-6 col-md-3">
                             <i class="fas fa-map-marker-alt"><span class="info_vagas"> ${vaga.localidade}</span></i>
-                        </div>
+                        </div>-->
                         <div class="col-6 col-md-3">
                             <i class="fas fa-search-dollar"><span class="info_vagas"> R$ ${vaga.salario}</span></i>
                         </div>
@@ -195,7 +208,7 @@ function imprimeVagas(){
                         </div>
                     </div>
                 </div>
-            </div>`;            
+            </div>`;
         }
     }
     card_info.innerHTML = strTexto;
@@ -212,42 +225,60 @@ document.getElementById('filtro_info').addEventListener('change', imprimeDados);
 onload = () => {
     const usuarioSession = JSON.parse(sessionStorage.getItem('usuario-login'));
     imprimeVagas();
-    
+
+
     menuUsuario(usuarioSession);
-    exibirCampoVagas();
+    selecionarVaga();
+    adicionarVagaFavorita();
+
+}
+
+
+function selecionarVaga() {
+    const linkVagas = document.querySelectorAll('.titulo_vaga');
+    console.log(linkVagas);
+    for (let linkVaga of linkVagas) {
+        linkVaga.addEventListener("click", function (e) {
+            sessionStorage.setItem("vaga-info", JSON.stringify(linkVaga.id));
+            location.href = "index_vaga_info.html";
+        });
+    }
 }
 
 function menuUsuario(usuarioSession) {
     const btnPerfil = document.querySelector('.confirma-login');
     const alertLogin = document.querySelector('.alert-login');
     const dropdowMenuNavbar = document.querySelector('.dropdown-menu-navbar');
-    if(usuarioSession) {
+    if (usuarioSession) {
         btnPerfil.innerHTML = `
         <i class="ni ni-circle-08"></i>
         <span class="nav-link-inner--text">${usuarioSession.nome}</span>`;
     }
     btnPerfil.onclick = () => {
-        if(!usuarioSession) {
+        if (!usuarioSession) {
             dropdowMenuNavbar.classList.add('d-none');
             alertLogin.classList.remove('d-none');
         }
     }
 }
 
-function exibirCampoVagas() {
-    const campoVagas = document.querySelector('.campo-vagas');
-    const arrayVagas = JSON.parse(localStorage.getItem('cadastroVagas'));
-    const div = criarDiv();
-    campoVagas.appendChild(div);
-
-    for(let vaga of arrayVagas) {
-        const a = criarA();
-        a.setAttribute('class', 'card p-4 mb-3');
-        a.innerHTML = `
-        <h3 class="text-primary">${vaga.funcao}</h3>
-        <p class="text-default">Nome empresa -> Endereço</p>
-        `;
-        div.appendChild(a);
+function adicionarVagaFavorita() {
+    const todosBtnFavorito = document.querySelectorAll('.btn-interesse');
+    console.log(todosBtnFavorito);
+    const usuarioSession = sessionStorage.getItem('usuario-login');
+    const id_usuario = JSON.parse(usuarioSession).id;
+    for (let btnFavorito of todosBtnFavorito) {
+        btnFavorito.addEventListener("click", (e) => {
+            const el = e.target;
+            let objDados = leDados();
+            for (let obj of objDados) {
+                if (el.classList.contains(String(obj.id))) {
+                    favoritosArray.push({ ...obj, id_usuario: id_usuario });
+                    localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
+                }
+            }
+            console.log(objDados);
+        });
     }
 }
 
