@@ -211,7 +211,12 @@ function imprimeVagas() {
             </div>`;
         }
     }
-    card_info.innerHTML = strTexto;
+    title = `
+    <div class="row titulo_vagas">
+        <h1>Nossas vagas</h1>
+    </div>
+    `
+    card_info.innerHTML = title + strTexto;
 }
 
 
@@ -230,6 +235,10 @@ onload = () => {
     menuUsuario(usuarioSession);
     selecionarVaga();
     adicionarVagaFavorita();
+    
+    executaPesquisaCursos()
+    executaPesquisaNoticias()
+    
 
 }
 
@@ -291,3 +300,56 @@ function criarA() {
     const a = document.createElement('a');
     return a;
 }
+
+
+// Noticias e cursos 
+const API_KEY = 'b5d2164cdc0045ce8ca77e40d68a5555'
+
+function exibeNoticias (){
+    let divNoticias = document.getElementById('noticias')
+    let Texto = ``
+
+    // Mostra titulo das noticias
+    let dados = JSON.parse(this.responseText);
+    for (let i = 0; i < 4; i++){
+        let noticia = dados.articles[i]
+        Texto += `
+        <div class="card noticia">
+            <h6>${noticia.title}</h6>
+            <a class="noticia" href="${noticia.url}">Leia mais...</a>
+        </div>
+        `
+    }
+    divNoticias.innerHTML = Texto
+}
+function executaPesquisaNoticias(){
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', `https://newsapi.org/v2/everything?q=emprego&language=pt&apiKey=${API_KEY}`)
+    xhr.onload = exibeNoticias;
+    xhr.send()
+}
+
+function exibeCursos(){
+    let divCursos = document.getElementById('cursos')
+    let Texto = ``
+
+    let dados = JSON.parse(this.responseText)
+    for (let i = 0; i <4; i++){
+        let curso = dados.articles[i]
+        Texto += `
+        <div class="card cursos">
+            <h6>${curso.title}</h6>
+            <a class="cursos" href="${curso.url}">Leia mais...</a>
+        </div>
+        `
+    }
+    divCursos.innerHTML = Texto
+}
+
+function executaPesquisaCursos(){
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', `https://newsapi.org/v2/everything?q=cursos-mercado&language=pt&apiKey=${API_KEY}`)
+    xhr.onload = exibeCursos
+    xhr.send() 
+}
+

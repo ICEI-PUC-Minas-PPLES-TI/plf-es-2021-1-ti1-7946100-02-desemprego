@@ -1,3 +1,96 @@
+
+header > nav.navbar{
+    background-color: rgba(72, 53, 212, 0.2);
+}
+/* input#pesquisa{
+    outline: #4835d4;
+} */
+.ball{
+    background-color: rgba(72, 53, 212, 0.4);
+    clip-path: circle();
+    position: absolute;
+    width: 210px;
+    height: 210px;
+}
+.ball.top{
+    top: 11rem;
+    left: -14rem;
+    width: 350px;
+    height: 350px;
+}
+.ball.bottom{
+    bottom: -17rem;
+    right: -8rem;
+}
+div.noticias div:first-child{
+    margin-top: 15px;
+}
+div.card.noticia{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid 1.5px #8A76FF;
+}
+div.card.container.vagas_info{
+    border: solid 2px #8A76FF;
+}
+div.titulo_vagas{
+    text-align: center;
+}
+div.card.cursos{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid 1.5px #8A76FF;
+}
+div.card.noticia a{
+    text-align: right;
+}
+div.card.cursos a{
+    text-align: right;
+}
+div.card.noticia a:hover{
+    font-weight: bold;
+    color: #8A76FF !important;
+}
+div.card.cursos a:hover{
+    font-weight: bold;
+    color: #8A76FF !important;
+}
+ul > li > a#navbarDropdown#perfil{
+    
+}
+#footer > div > div > div > img{
+    float: right;
+    margin-right: 15px;
+    width: 250px;
+}
+input#pesquisa{
+    width: 350px;
+}
+footer#footer{
+    background-color: rgba(72, 53, 212, 0.2);
+    height: 130px;
+}
+button.btn, select.button{
+    background-color: #8A76FF;
+    color: white;
+}
+div#logar{
+    margin-right: 50px;
+}
+div#logo{
+    margin-left: 25px;
+}
+div#menu{
+    margin-left: -350px;
+}
+#menu nav a, #menu nav{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+ul>li>a#perfil{
+    color: #8A76FF !important;
+}
 header {
     margin-bottom: 20px;
 }
@@ -44,7 +137,7 @@ div > i {
     left: calc(100% + -100px);
     content: attr(data-tooltip);
     white-space: nowrap;
-    background-color: #4835d4;
+    background-color: #8A76FF;
     color: White;
 }
 .explicacao[data-tooltip]:hover::after{

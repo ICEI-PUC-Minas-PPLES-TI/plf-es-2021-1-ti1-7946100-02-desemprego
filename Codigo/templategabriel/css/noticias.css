@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div.container.informativo{
+    padding: 0;
+}
+div.materia{
+    margin-left: 5px;
+    text-align: justify;
+    margin-right: 15px;
+}
+div.titulo_noticia{
+    text-align: center;
+}
+div.card.noticia{
+    border: solid 2px #8A76FF;
+}
+div.link{
+    margin-top: 15px;
+}
+
+img.img_noticia{
+    width: 250px;
+}
+div.div_img{
+    text-align: center;
+    align-items: center;
+}
