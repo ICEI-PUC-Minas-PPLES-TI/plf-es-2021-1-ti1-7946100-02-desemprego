@@ -11,6 +11,20 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>AcheiTi</title>
+    <script>
+        onload = () => {
+            const usuarioSession = JSON.parse(sessionStorage.getItem('usuario-login'));
+            imprimeVagas();
+
+            executaPesquisaCursos()
+            executaPesquisaCardNoticias()
+
+            menuUsuario(usuarioSession);
+            selecionarVaga();
+            adicionarVagaFavorita();
+            
+        }
+    </script>
 </head>
 
 <body class="bg-light">
@@ -24,7 +38,7 @@
                     <nav>
                         <a href="#">Home </a>|
                         <a href="noticias.html"> Notícias </a>|
-                        <a href="#"> Cursos</a>
+                        <a href="cursos.html"> Cursos</a>
                     </nav>
                 </div>
                 <div id="logar">
@@ -177,10 +191,10 @@
                 <div class="col-12 col-lg-4">
                     <div class="card mb-4">
                         <div class="noticias card-body">
-                            <a href="#">
+                            <a href="noticias.html">
                                 <h1 class="card-title">Notícias</h1>
                             </a>
-                            <div id="noticias">
+                            <div id="noticias_card">
                                 <div class="card noticia">
                                     <h6>Título</h6>
                                     <a class="noticia" href="#">Leia mais...</a>
@@ -202,7 +216,7 @@
                     </div>
                     <div class="card mb-4">
                         <div class="cursos card-body">
-                            <a href="#">
+                            <a href="cursos.html">
                                 <h1 class="card-title">Cursos</h1>
                             </a>
                             <div id="cursos">
@@ -246,6 +260,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <!--Index JS-->
     <script src="./js/index.js"></script>
+    <script src="./js/noticias.js"></script>
 </body>
 
 </html>

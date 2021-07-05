@@ -1,13 +1,11 @@
-onload = () => {
-    executaPesquisaNoticias()
-    executaPesquisaCursos()
-}
-
-
+// onload = () => {
+//     executaPesquisaNoticias()
+//     // executaPesquisaCursos()
+// }
 
 const API_KEY = 'b5d2164cdc0045ce8ca77e40d68a5555'
 
-function exibeNoticias (){
+function exibeNoticiasPagina(){
     let divNoticias = document.getElementById('card_noticias')
     let Texto = ``
 
@@ -16,7 +14,7 @@ function exibeNoticias (){
         let noticia = dados.articles[i]
         let data = new Date (noticia.publishedAt)
         let autor = ''
-        if (noticia.author == null){
+        if (noticia.author == 'null'){
             autor = ''
         }else{
             autor = `Autor/a: ${noticia.author}`
@@ -57,10 +55,10 @@ function exibeNoticias (){
     divNoticias.innerHTML = title + Texto
 }
 
-function executaPesquisaNoticias(){
+function executaPesquisaPaginaNoticias(){
     let xhr = new XMLHttpRequest()
     xhr.open('GET', `https://newsapi.org/v2/everything?q=emprego&language=pt&apiKey=${API_KEY}`)
-    xhr.onload = exibeNoticias
+    xhr.onload = exibeNoticiasPagina
     xhr.send()
 }
 
@@ -87,3 +85,78 @@ function executaPesquisaCursos(){
     xhr.onload = exibeCursos
     xhr.send() 
 }
+
+function exibeNoticiasCardNoticias(){
+    let divCardNoticias = document.getElementById('noticias_card')
+    let Text = ``
+
+    let dados = JSON.parse(this.responseText)
+    for (let i = 0; i<4; i++){
+        let noticia = dados.articles[i]
+        Text += `
+        <div class="card noticia">
+            <h6>${noticia.title}</h6>
+            <a class="noticia" href="${noticia.url}">Leia mais...</a>
+        </div>
+        `
+    }
+    divCardNoticias.innerHTML = Text
+}
+
+function executaPesquisaCardNoticias(){
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', `https://newsapi.org/v2/everything?q=emprego&language=pt&apiKey=${API_KEY}`)
+    xhr.onload = exibeNoticiasCardNoticias
+    xhr.send()
+}
+
+function exibeCursosPagina(){
+    let divCursos = document.getElementById('card_cursos')
+    let Text = ``
+
+    let dados = JSON.parse(this.responseText)
+    for (let i =0; i < 5; i++){
+        let curso = dados.articles[i]
+        let data = new Date(curso.publishedAt)
+        Text += `
+        <div class="row">
+            <div class="card noticia">
+                <div class="container informativo">
+                    <div class="row">
+                        <div id="img_curso" class="col-4">
+                            <img src="${curso.urlToImage}" alt="Imagem noticia">
+                        </div>
+                        <div class="col-8">
+                                <div class="row title">
+                                    <strong>${curso.title}</strong>
+                                </div>
+                                <div class="row info">
+                                    <p>Data: ${data.toLocaleDateString()}</p>
+                                </div>
+                                <div class="row materia">
+                                    ${curso.content}
+                                </div>
+                                <div class="row link">
+                                    <a class="noticias" href="${curso.url}">Leia mais...</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+    }
+    title = `
+    <div class="row titulo_noticia">
+        <h1>Cursos</h1>
+    </div>
+    `
+    divCursos.innerHTML = title + Text
+}
+function executaPesquisaCardCursos(){
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', `https://newsapi.org/v2/everything?q=cursos-mercado&language=pt&apiKey=${API_KEY}`)
+    xhr.onload = exibeCursosPagina
+    xhr.send()
+}
+
