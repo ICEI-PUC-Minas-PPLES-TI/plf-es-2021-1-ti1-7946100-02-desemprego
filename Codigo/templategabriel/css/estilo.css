@@ -4,7 +4,12 @@
       font-family: 'Varela Round', sans-serif;
       font-size: 13px;
   }
-  
+  div#botoes div{
+	background-color: #8A76FF !important;
+}
+  div#botoes div a{
+    color: white !important;
+}
   .table-wrapper {
       background: #fff;
       padding: 20px 25px;

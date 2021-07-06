@@ -1,3 +1,10 @@
+/* header{
+    max-width: 100%;
+} */
+body{
+    align-items: center;
+    overflow-x: hidden;
+}
 
 header > nav.navbar{
     background-color: rgba(72, 53, 212, 0.2);
@@ -11,6 +18,7 @@ header > nav.navbar{
     position: absolute;
     width: 210px;
     height: 210px;
+    z-index: -1;
 }
 .ball.top{
     top: 11rem;
@@ -59,12 +67,12 @@ ul > li > a#navbarDropdown#perfil{
     
 }
 #footer > div > div > div > img{
-    float: right;
+    /* float: center; */
     margin-right: 15px;
     width: 250px;
 }
 input#pesquisa{
-    width: 350px;
+    width: 300px;
 }
 footer#footer{
     background-color: rgba(72, 53, 212, 0.2);
@@ -156,4 +164,26 @@ a.titulo_vaga:hover{
 .descricao_vaga{
     color: grey;
 }
+@media screen and (min-width: 794px) and (max-width: 959px){
+    input#pesquisa{
+        width: 250px;
+    }
+}
+footer#footer{
+    align-items: center;
+    justify-content: center;
+}
 
+footer#footer div{
+    align-items: center;
+    justify-items: center;
+}
+footer#footer p{
+    text-align: center;
+    justify-items: center;
+}
+/* @media screen and (max-width:614px){
+    #footer > div > div > div > img{
+        align-items: center;
+    }
+} */

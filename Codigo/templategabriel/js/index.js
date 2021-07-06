@@ -179,6 +179,7 @@ function imprimeVagas() {
 
     for (i = 0; i < objDados.length; i++) {
         const vaga = objDados[i];
+        let data = new Date(vaga.datavalidade)
         if (vaga.filtro == filtro_info) {
             strTexto +=
                 `<div class="row">
@@ -204,7 +205,7 @@ function imprimeVagas() {
                             <i class="fas fa-filter"><span class="info_vagas"> ${vaga.filtro}</span></i>
                         </div>
                         <div class="col-6 col-md-3">
-                            <i class="far fa-clock"><span class="explicacao info_vagas" data-tooltip=" Data limite para inscrição! "> ${vaga.data}</span></i>
+                            <i class="far fa-clock"><span class="explicacao info_vagas" data-tooltip=" Data limite para inscrição! "> ${data.toLocaleDateString()}</span></i>
                         </div>
                     </div>
                 </div>
