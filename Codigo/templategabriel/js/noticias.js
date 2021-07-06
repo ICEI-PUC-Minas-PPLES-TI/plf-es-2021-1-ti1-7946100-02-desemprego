@@ -24,15 +24,15 @@ function exibeNoticiasPagina(){
             <div class="card noticia">
                 <div class="container informativo">
                     <div class="row">
-                        <div class="col-4 div_img">
+                        <div class="col-sm-12 col-md-5 div_img">
                             <img class="img_noticia" src="${noticia.urlToImage}" alt="Noticia">
                         </div>
-                        <div class="col-8">
+                        <div class="col-sm-12 col-md-7">
                                 <div class="row title">
                                     <strong>${noticia.title}</strong>
                                 </div>
                                 <div class="row info">
-                                    <p>${autor} | Data: ${data.toLocaleDateString()}</p>
+                                    <p>Data: ${data.toLocaleDateString()}</p>
                                 </div>
                                 <div class="row materia">
                                     ${noticia.content}
@@ -123,10 +123,10 @@ function exibeCursosPagina(){
             <div class="card noticia">
                 <div class="container informativo">
                     <div class="row">
-                        <div id="img_curso" class="col-4">
+                        <div id="img_curso" class="col-sm-12 col-lg-5">
                             <img src="${curso.urlToImage}" alt="Imagem noticia">
                         </div>
-                        <div class="col-8">
+                        <div class="col-sm-12 col-lg-7">
                                 <div class="row title">
                                     <strong>${curso.title}</strong>
                                 </div>

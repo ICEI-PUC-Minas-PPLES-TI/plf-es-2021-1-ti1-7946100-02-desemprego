@@ -38,6 +38,7 @@ function salvaDados(dados){
 function incluirContato(){
     //Ler os dados do localStorage
     let objDados = leDados();
+    const userId = JSON.parse(sessionStorage.getItem("usuario-login")).id;
     //Verificar se o id do sessionStorage e Igual a um id dentro do LocalStorage
     let dadosSession = JSON.parse(sessionStorage.getItem('usuario-login')) ;
     let idSession = dadosSession.id;
@@ -107,7 +108,8 @@ function incluirContato(){
             zip: novozip,
             cpf: novocpf,
             ddd: novocode,
-            phone: novophone
+            phone: novophone,
+            candidato_id_sessao: userId
         };
         objDados.usuarios_candidato.push(novoUsuario);
         //Salvar os dados no localStorage novamente

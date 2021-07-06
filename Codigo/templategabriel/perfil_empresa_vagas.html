@@ -183,7 +183,7 @@
     <main style="margin-bottom: 300px;">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-3">
+                <div id="botoes" class="col-12 col-lg-3">
                     <div class="text-center bg-white rounded py-4 mb-2 shadow nav-side">
                         <a href="./perfil_empresa_info.html" class="d-block text-primary text-decoration-none">Informações da empresa</a>
                     </div>
@@ -256,6 +256,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         var db = JSON.parse(localStorage.getItem('cadastroVagas'));
+        const userId = JSON.parse(sessionStorage.getItem("usuario-login")).id;
         var controle = 0
 
         function removeRegistro(id) {
@@ -274,18 +275,21 @@
         function populaTabela() {
             $("table tbody").html("")
             db.forEach(function(item) {
-                $("table tbody").append(`<tr>
-                <td>${item.id}</td>
-                <td>${item.funcao}</td>
-				<td>${item.escolaridade}</td>
-				<td>${item.salario}</td>
-				<td>${item.localidade}</td>
-				<td>${item.status}</td>
-				<td>
-				<a href="#editEmployeeModal" class="edit" data-toggle="modal" onclick="editaRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal" onclick="removeRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
-				</td>
-			</tr>`)
+                if(item.empresa_id === userId) {
+                    $("table tbody").append(`<tr>
+                    <td>${item.id}</td>
+                    <td>${item.funcao}</td>
+                    <td>${item.escolaridade}</td>
+                    <td>${item.salario}</td>
+                    <td>${item.localidade}</td>
+                    <td>${item.status}</td>
+                    <td>
+                    <a href="#editEmployeeModal" class="edit" data-toggle="modal" onclick="editaRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal" onclick="removeRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
+                    </td>
+                </tr>`)
+                }
+                
             })
             localStorage.setItem('cadastroVagas', JSON.stringify(db))
             controle = 0
@@ -314,6 +318,7 @@
                     });
                 }
             })
+            console.log(controle);
         }
 
         function insereVaga() {
@@ -335,7 +340,8 @@
                     datavalidade: document.getElementById('datavalidade').value,
                     filtro: $('#validationCustom03 option:selected').text(),
                     status: $('#validationCustom04 option:selected').text(),
-                    empresa: '1'
+                    empresa_id: userId,
+                    candidatosIds: []
                 }
                 db.push(vaga)
                 $("#id").val("")

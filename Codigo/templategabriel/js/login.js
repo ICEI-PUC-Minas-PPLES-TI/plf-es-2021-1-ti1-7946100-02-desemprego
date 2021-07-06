@@ -6,6 +6,8 @@ const alertUsuarioInexistente = document.querySelector('.alert-usuario-inexisten
 
 sessionStorage.clear();
 
+
+
 onload = () => {
     form.onsubmit = (e) => {
         e.preventDefault();

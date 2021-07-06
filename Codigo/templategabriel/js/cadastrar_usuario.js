@@ -5,6 +5,56 @@ const senhaForm = document.querySelector('#senha');
 const repetirSenhaForm = document.querySelector('#confirmar-senha');
 db_cadastrar_usuario = [];
 
+function criarUsuariosTeste() {
+    if(!localStorage.getItem('usuario-cadastro')) {
+        const objUsers = [
+            {
+                id: 0,
+                nome: 'PUC Minas',
+                email: 'pucminas@user.com',
+                senha: '123'
+            },
+            {
+                id: 1,
+                nome: 'Compre Aqui',
+                email: 'compreaqui@user.com',
+                senha: '123'
+            },
+            {
+                id: 2,
+                nome: 'MesasEntregues',
+                email: 'mesasentregues@user.com',
+                senha: '123'
+            },
+            {
+                id: 3,
+                nome: 'VidrosBaratos',
+                email: 'vidrosbaratos@user.com',
+                senha: '123'
+            },
+            {
+                id: 4,
+                nome: 'Joao',
+                email: 'joao@user.com',
+                senha: '123'
+            },
+            {
+                id: 5,
+                nome: 'Igor',
+                email: 'igor@user.com',
+                senha: '123'
+            },
+            {
+                id: 6,
+                nome: 'Samira',
+                email: 'samira@user.com',
+                senha: '123'
+            }
+        ];
+        localStorage.setItem("usuario-cadastro", JSON.stringify(objUsers));
+    }
+}
+
 onload = () => {
     form.onsubmit = (e) => {
         e.preventDefault();
@@ -12,6 +62,7 @@ onload = () => {
         if(!verificarCamposVazios(userForm, emailForm, senhaForm, repetirSenhaForm)) return;
         if(!verificarSenhas(senhaForm, repetirSenhaForm)) return;
 
+        criarUsuariosTeste();
         const usuarioLogin = JSON.parse(localStorage.getItem('usuario-cadastro'));
         
         if(usuarioLogin) db_cadastrar_usuario = [...usuarioLogin];
@@ -44,7 +95,7 @@ function existeUsuario(emailForm, db_cadastrar_usuario) {
 
 function cadastrarUsuarios(user, email, senha, db_length) {
     return {
-        id: db_length++,
+        id: db_length,
         nome: user.value,
         email: email.value,
         senha: senha.value,
