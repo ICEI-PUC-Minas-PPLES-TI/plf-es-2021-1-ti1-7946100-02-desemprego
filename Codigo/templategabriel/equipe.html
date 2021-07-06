@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page plugins -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_team.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>desEmpreguei - Nossa equipe</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        onload = () => {
+            const usuarioSession = JSON.parse(sessionStorage.getItem('usuario-login'));
+            executaPesquisaCursos()
+            executaPesquisaCardNoticias()
+        }
+    </script>
+</head>
+
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div id="header container" class="container">
+                <div id="logo">
+                    <a class="navbar-brand" href="./index.html"><img src="./img/desEmpreguei_free-file.png" alt=""></a>
+                </div>
+                <div id="logar">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex w-100">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle confirma-login" href="#" id="navbarDropdown perfil" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Perfil
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-navbar" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="./perfil_candidato_info.html">Candidate-se</a></li>
+                                        <li><a class="dropdown-item" href="./perfil_empresa_info.html">Contrate</a></li>
+                                    </ul>
+                                </li>
+                                <div class="alert alert-light position-absolute alert-login d-none" role="alert">
+                                    Fazer <a href="./login.html">Login</a>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </nav>
+    </header>
+    <div id="bg">
+        <div class="ball top"></div>
+        <div class="ball bottom"></div>
+    </div>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div id="card_info" class="card container">
+                        <div class="row">
+                            <section id="team" class="pb-5">
+                                <div class="container">
+                                    <h5 class="section-title h1">Nossa equipe</h5>
+                                    <div class="row">
+                                        <!-- Team member -->
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                            <div class="image-flip" >
+                                                <div class="mainflip flip-0">
+                                                    <div class="frontside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+                                                                <p><img class=" img-fluid" src="./img/foto_vitor.jpeg" alt="card image"></p>
+                                                                <h4 class="card-title">Vitor Costa Salem</h4>
+                                                                <p class="card-text">Desenvolvedor Front End e diretor de UX.</p>
+                                                                <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">Vitor</h4>
+                                                                <p class="card-text">"A minha maior felicidade e poder proporcionar aos usuários uma experiência inesquecível..."</p>
+                                                                <ul class="list-inline">
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://github.com/vitorcostas">
+                                                                            <i class="fab fa-github"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/vitor-costa-salem-446b39164/">
+                                                                            <i class="fab fa-linkedin"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="mailto:vitor635@hotmail.com">
+                                                                            <i class="fa fa-google"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ./Team member -->
+                                        <!-- Team member -->
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="mainflip">
+                                                    <div class="frontside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+                                                                <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_02.png" alt="card image"></p>
+                                                                <h4 class="card-title">Sunlimetech</h4>
+                                                                <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                                                <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">Sunlimetech</h4>
+                                                                <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                                                <ul class="list-inline">
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-facebook"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-twitter"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-skype"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-google"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ./Team member -->
+                                        <!-- Team member -->
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="mainflip">
+                                                    <div class="frontside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+                                                                <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_03.png" alt="card image"></p>
+                                                                <h4 class="card-title">Sunlimetech</h4>
+                                                                <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                                                <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">Sunlimetech</h4>
+                                                                <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                                                <ul class="list-inline">
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-facebook"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-twitter"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-skype"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-google"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ./Team member -->
+                                        <!-- Team member -->
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="mainflip">
+                                                    <div class="frontside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+                                                                <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_04.jpg" alt="card image"></p>
+                                                                <h4 class="card-title">Sunlimetech</h4>
+                                                                <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                                                <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">Sunlimetech</h4>
+                                                                <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                                                <ul class="list-inline">
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-facebook"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-twitter"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-skype"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-google"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ./Team member -->
+                                        <!-- Team member -->
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="mainflip">
+                                                    <div class="frontside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+                                                                <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_05.png" alt="card image"></p>
+                                                                <h4 class="card-title">Sunlimetech</h4>
+                                                                <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                                                <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">Sunlimetech</h4>
+                                                                <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                                                <ul class="list-inline">
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-facebook"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-twitter"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-skype"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                                                            <i class="fa fa-google"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ./Team member -->
+                                        
+                            
+                                    </div>
+                                </div>
+                            </section>   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="card mb-4">
+                        <div class="noticias card-body">
+                            <a href="noticias.html">
+                                <h1 class="card-title">Notícias</h1>
+                            </a>
+                            <div id="noticias_card">
+                                <div class="card noticia">
+                                    <h6>Título</h6>
+                                    <a class="noticia" href="#">Leia mais...</a>
+                                </div>
+                                <div class="card noticia ">
+                                    <h6>Título</h6>
+                                    <a class="noticia" href="#">Leia mais...</a>
+                                </div>
+                                <div class="card noticia">
+                                    <h6>Título</h6>
+                                    <a class="noticia" href="#">Leia mais...</a>
+                                </div>
+                                <div class="card noticia">
+                                    <h6>Título</h6>
+                                    <a class="noticia" href="#">Leia mais...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="cursos card-body">
+                            <a href="cursos.html">
+                                <h1 class="card-title">Cursos</h1>
+                            </a>
+                            <div id="cursos">
+                                <div class="card cursos">
+                                    <h6>Título</h6>
+                                    <a class="cursos" href="#">Leia mais...</a>
+                                </div>
+                                <div class="card cursos ">
+                                    <h6>Título</h6>
+                                    <a class="cursos" href="#">Leia mais...</a>
+                                </div>
+                                <div class="card cursos">
+                                    <h6>Título</h6>
+                                    <a class="cursos" href="#">Leia mais...</a>
+                                </div>
+                                <div class="card cursos">
+                                    <h6>Título</h6>
+                                    <a class="cursos" href="#">Leia mais...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer" class="p-5 text-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-4">
+                    <p>
+                        CopyRight 2021. Todos direitos reservados
+                    </p>
+                </div>
+                <div class="col-sm-12 col-lg-4">
+                    <p>
+                        <a id="equipe" href="equipe.html">Nossa Equipe</a>
+                    </p>
+                </div>
+                <div class="col-sm-12 col-lg-4 logo">
+                    <img  src="./img/desEmpreguei_free-file.png" alt="logo">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <!--Index JS-->
+    <script src="./js/index.js"></script>
+    <script src="./js/noticias.js"></script>
+</body>
+
+</html>
