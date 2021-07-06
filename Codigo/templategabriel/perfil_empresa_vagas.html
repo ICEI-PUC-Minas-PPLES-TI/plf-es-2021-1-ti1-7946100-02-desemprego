@@ -274,18 +274,21 @@
         function populaTabela() {
             $("table tbody").html("")
             db.forEach(function(item) {
-                $("table tbody").append(`<tr>
-                <td>${item.id}</td>
-                <td>${item.funcao}</td>
-				<td>${item.escolaridade}</td>
-				<td>${item.salario}</td>
-				<td>${item.localidade}</td>
-				<td>${item.status}</td>
-				<td>
-				<a href="#editEmployeeModal" class="edit" data-toggle="modal" onclick="editaRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal" onclick="removeRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
-				</td>
-			</tr>`)
+                if(item.empresa_id === userId) {
+                    $("table tbody").append(`<tr>
+                    <td>${item.id}</td>
+                    <td>${item.funcao}</td>
+                    <td>${item.escolaridade}</td>
+                    <td>${item.salario}</td>
+                    <td>${item.localidade}</td>
+                    <td>${item.status}</td>
+                    <td>
+                    <a href="#editEmployeeModal" class="edit" data-toggle="modal" onclick="editaRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal" onclick="removeRegistro(${item.id});"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
+                    </td>
+                </tr>`)
+                }
+                
             })
             localStorage.setItem('cadastroVagas', JSON.stringify(db))
             controle = 0
@@ -314,6 +317,7 @@
                     });
                 }
             })
+            console.log(controle);
         }
 
         function insereVaga() {
@@ -335,7 +339,8 @@
                     datavalidade: document.getElementById('datavalidade').value,
                     filtro: $('#validationCustom03 option:selected').text(),
                     status: $('#validationCustom04 option:selected').text(),
-                    empresa_id: userId 
+                    empresa_id: userId,
+                    candidatosIds: []
                 }
                 db.push(vaga)
                 $("#id").val("")
