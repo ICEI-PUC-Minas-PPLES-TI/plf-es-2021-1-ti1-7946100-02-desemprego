@@ -1,7 +1,23 @@
+let vagasInfos = JSON.parse(localStorage.getItem("cadastroVagas"));
+const vagaId = Number(JSON.parse(sessionStorage.getItem("vaga-info")).slice(-2));
+const conteudoPagina = document.querySelector(".conteudo-pagina");
+
+let controleUserId = true;
+if(!sessionStorage.getItem("usuario-login")) {
+    controleUserId = false;
+}
+
+
+let localStorageCandidatosIds = []; 
+
+if(JSON.parse(localStorage.getItem('candidatosIds'))) {
+    localStorageCandidatosIds = JSON.parse(localStorage.getItem('candidatosIds'));
+    console.log(localStorageCandidatosIds);
+} 
+
+exibirVaga();
+
 function exibirVaga() {
-    const vagaId = Number(JSON.parse(sessionStorage.getItem("vaga-info")).slice(-2));
-    const vagasInfos = JSON.parse(localStorage.getItem("cadastroVagas"));
-    const conteudoPagina = document.querySelector(".conteudo-pagina");
     let str = '';
     for(let vagaInfo of vagasInfos) {
         if(vagaInfo.id === vagaId) {
@@ -37,7 +53,7 @@ function exibirVaga() {
                 str +=
                 `
                     <div class="d-flex justify-content-end">
-                        <button class="btn btn-primary">Candidatar-se</button>
+                        <button class="btn btn-primary btn-candidatar">Candidatar-se</button>
                     </div>
                 `
             }
@@ -50,9 +66,44 @@ function exibirVaga() {
                     </div>
                 `
             }
+
+            if(controleUserId) {
+                const userId = JSON.parse(sessionStorage.getItem("usuario-login")).id;
+                document.addEventListener('click', (e) => {
+                    
+                    const el = e.target;
+                    let controle = true;
+                    if(el.classList.contains('btn-candidatar')) {
+                        if(localStorageCandidatosIds.length === 0) localStorageCandidatosIds.push(userId);                
+
+                        for(let localStorageCandidatosId of localStorageCandidatosIds) {
+                            if(localStorageCandidatosId === userId) controle = false;
+                        }
+
+                        if(controle) {
+                            localStorageCandidatosIds.push(userId);
+                        }
+
+                        localStorage.setItem("candidatosIds", JSON.stringify(localStorageCandidatosIds));
+                        
+                        if(!vagaInfo.candidatoIds) vagaInfo = { ...vagaInfo, candidatoIds: localStorageCandidatosIds };
+                        
+                        console.log(vagaInfo);
+                    }
+                });
+            } else {
+                document.addEventListener('click', (e) => {
+                    const el = e.target;
+                    if(el.classList.contains('btn-candidatar')) {
+                        alert("Faça login para continuar");
+                    }
+                });
+            }
+            
+
         } 
     }
 
     conteudoPagina.innerHTML = str;
 }
-exibirVaga();
+
