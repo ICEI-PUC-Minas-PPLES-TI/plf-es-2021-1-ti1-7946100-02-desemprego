@@ -24,161 +24,162 @@
 </head>
 
 <body>
-    <header>
-        <!-- Edit Modal HTML -->
-        <div id="addEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form>
-                        <div class="modal-header">
-                            <h4 class="modal-title">Cadastrar Vaga</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+    <!-- Edit Modal HTML -->
+    <div id="addEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cadastrar Vaga</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Função</label>
+                            <input id="funcao" type="text" class="form-control" required>
                         </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label>Função</label>
-                                <input id="funcao" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Escolaridade</label>
-                                <input id="escolaridade" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Salário</label>
-                                <input id="salario" type="number" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Atividades</label>
-                                <textarea id="atividades" class="form-control" rows="3" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Requisitos</label>
-                                <textarea id="requisitos" class="form-control" rows="3" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Localidade</label>
-                                <input id="localidade" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Data Validade</label>
-                                <input id="datavalidade" type="date" class="form-control" required>
-                            </div>
-                            <div class="form-group" id="filtro">
-                                <label for="validationCustom03" class="form-label">Filtro</label>
-                                <select class="form-select" id="validationCustom03" required>
+                        <div class="form-group">
+                            <label>Escolaridade</label>
+                            <input id="escolaridade" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Salário</label>
+                            <input id="salario" type="number" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Atividades</label>
+                            <textarea id="atividades" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Requisitos</label>
+                            <textarea id="requisitos" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Localidade</label>
+                            <input id="localidade" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Data Validade</label>
+                            <input id="datavalidade" type="date" class="form-control" required>
+                        </div>
+                        <div class="form-group" id="filtro">
+                            <label for="validationCustom03" class="form-label">Filtro</label>
+                            <select class="form-select" id="validationCustom03" required>
                                     <option value="Geral">Geral</option>
                                     <option value="Mais Experiente">Mais Experiente</option>
                                     <option value="Outras Culturas">Outras Culturas</option>
                                     <option value="Primeira Oportunidade">Primeira Oportunidade</option>
                              </select>
-                            </div>
-                            <div class="form-group" id="status">
-                                <label for="validationCustom04" class="form-label">Status</label>
-                                <select class="form-select" id="validationCustom04" required>
+                        </div>
+                        <div class="form-group" id="status">
+                            <label for="validationCustom04" class="form-label">Status</label>
+                            <select class="form-select" id="validationCustom04" required>
                                     <option value="Aberta">Aberta</option>
                                     <option value="Preenchida">Preenchida</option>
                                     <option value="Cancelada">Cancelada</option>
                                 </select>
-                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Sair">
-                            <input type="submit" id="tbnSalvar" class="btn btn-success salvar" data-dismiss="modal" value="Salvar">
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Sair">
+                        <input type="submit" id="tbnSalvar" class="btn btn-success salvar" data-dismiss="modal" value="Salvar">
+                    </div>
+                </form>
             </div>
         </div>
-        <!-- Edit Modal HTML -->
-        <div id="editEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form>
-                        <div class="modal-header">
-                            <h4 class="modal-title">Editar Vaga</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+    <!-- Edit Modal HTML -->
+    <div id="editEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar Vaga</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <input id="hdId" type="hidden" class="form-control">
+                        <div class="form-group">
+                            <label>Função</label>
+                            <input id="txtFuncao" type="text" class="form-control" required>
                         </div>
-                        <div class="modal-body">
-                            <input id="hdId" type="hidden" class="form-control">
-                            <div class="form-group">
-                                <label>Função</label>
-                                <input id="txtFuncao" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Escolaridade</label>
-                                <input id="txtEscolaridade" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Salário</label>
-                                <input id="txtSalario" type="number" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Atividades</label>
-                                <textarea id="txtAtividades" class="form-control" rows="3" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Requisitos</label>
-                                <textarea id="txtRequisitos" class="form-control" rows="3" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Localidade</label>
-                                <input id="txtLocalidade" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Data Validade</label>
-                                <input id="txtDatavalidade" type="date" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="validationCustom03" class="form-label">Filtro</label>
-                                <select class="form-select" id="selFiltro" required>
+                        <div class="form-group">
+                            <label>Escolaridade</label>
+                            <input id="txtEscolaridade" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Salário</label>
+                            <input id="txtSalario" type="number" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Atividades</label>
+                            <textarea id="txtAtividades" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Requisitos</label>
+                            <textarea id="txtRequisitos" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Localidade</label>
+                            <input id="txtLocalidade" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Data Validade</label>
+                            <input id="txtDatavalidade" type="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom03" class="form-label">Filtro</label>
+                            <select class="form-select" id="selFiltro" required>
                                     <option value="Geral">Geral</option>
                                     <option value="Mais Experiente">Mais Experiente</option>
                                     <option value="Outras Culturas">Outras Culturas</option>
                                     <option value="Primeira Oportunidade">Primeira Oportunidade</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="validationCustom04" class="form-label">Status</label>
-                                <select class="form-select" id="selStatus" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom04" class="form-label">Status</label>
+                            <select class="form-select" id="selStatus" required>
                                     <option value="Aberta">Aberta</option>
                                     <option value="Preenchida">Preenchida</option>
                                     <option value="Cancelada">Cancelada</option>
                                 </select>
-                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Sair">
-                            <input type="submit" id="tbnSalvarEdit" class="btn btn-success salvar" data-dismiss="modal" value="Salvar">
-                        </div>
-                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Sair">
+                        <input type="submit" id="tbnSalvarEdit" class="btn btn-success salvar" data-dismiss="modal" value="Salvar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="d-flex w-100">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Perfil
+                                </a>
+                            <ul class="dropdown-menu dropdown-menu-navbar" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="./perfil_candidato_info.html">Candidate-se</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./perfil_empresa_info.html">Contrate</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="./index.html">Logo</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="d-flex w-100">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Perfil
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-navbar" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="./perfil_candidato_info.html">Candidate-se</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="./perfil_empresa_info.html">Contrate</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    </nav>
+
     <main style="margin-bottom: 300px;">
         <div class="container">
             <div class="row">
