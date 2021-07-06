@@ -27,3 +27,6 @@ div.div_img{
     text-align: center;
     align-items: center;
 }
+div#img_curso img{
+    width: 250px;
+}
