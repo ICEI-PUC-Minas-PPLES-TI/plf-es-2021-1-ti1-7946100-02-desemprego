@@ -23,7 +23,9 @@ function leDados() {
                 status: "Aberta",
                 localidade: "Belo Horizonte",
                 filtro: "Mais experiente",
-                data: "19/12/2021"
+                data: "19/12/2021",
+                candidatosIds: [],
+                empresa_id: 0
             },
             {
                 id: 1,
@@ -36,7 +38,9 @@ function leDados() {
                 status: "Aberta",
                 localidade: "Brasil",
                 filtro: "Mais experiente",
-                data: "25/12/2021"
+                data: "25/12/2021",
+                candidatosIds: [],
+                empresa_id: 1
             },
             {
                 id: 2,
@@ -49,7 +53,9 @@ function leDados() {
                 status: "Aberta",
                 localidade: "Belo Horizonte",
                 filtro: "Primeira Oportunidade",
-                data: "19/12/2021"
+                data: "19/12/2021",
+                candidatosIds: [],
+                empresa_id: 1
             },
             {
                 id: 3,
@@ -62,7 +68,9 @@ function leDados() {
                 status: "Aberta",
                 localidade: "São Paulo/Remoto",
                 filtro: "Primeira Oportunidade",
-                data: "19/12/2021"
+                data: "19/12/2021",
+                candidatosIds: [],
+                empresa_id: 2
             },
             {
                 id: 4,
@@ -75,7 +83,9 @@ function leDados() {
                 status: "Aberta",
                 localidade: "Belo Horizonte",
                 filtro: "Outras Culturas",
-                data: "19/10/2021"
+                data: "19/10/2021",
+                candidatosIds: [],
+                empresa_id: 3
             },
             {
                 id: 5,
@@ -88,7 +98,9 @@ function leDados() {
                 status: "Aberta",
                 localidade: "Belo Horizonte",
                 filtro: "Outras Culturas",
-                data: "19/10/2021"
+                data: "19/10/2021",
+                candidatosIds: [],
+                empresa_id: 3
             },
             {
                 id: 6,
@@ -101,7 +113,9 @@ function leDados() {
                 status: "Aberta",
                 localidade: "Betim",
                 filtro: "Geral",
-                data: "19/08/2021"
+                data: "19/08/2021",
+                candidatosIds: [],
+                empresa_id: 4
             },
             {
                 id: 7,
@@ -114,11 +128,14 @@ function leDados() {
                 status: "Aberta",
                 localidade: "Belo Horizonte",
                 filtro: "Geral",
-                data: "19/07/2021"
+                data: "19/07/2021",
+                candidatosIds: [],
+                empresa_id: 5
             }
         ];
         localStorage.setItem('cadastroVagas', JSON.stringify(objDados));
     }
+    console.log(objDados);
     return objDados;
 }
 
@@ -258,6 +275,7 @@ function menuUsuario(usuarioSession) {
     const btnPerfil = document.querySelector('.confirma-login');
     const alertLogin = document.querySelector('.alert-login');
     const dropdowMenuNavbar = document.querySelector('.dropdown-menu-navbar');
+    const finalizarSessao = document.querySelector('.finalizarSessao');
     if (usuarioSession) {
         btnPerfil.innerHTML = `
         <i class="ni ni-circle-08"></i>

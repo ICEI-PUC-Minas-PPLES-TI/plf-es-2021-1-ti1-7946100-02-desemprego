@@ -255,6 +255,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         var db = JSON.parse(localStorage.getItem('cadastroVagas'));
+        const userId = JSON.parse(sessionStorage.getItem("usuario-login")).id;
         var controle = 0
 
         function removeRegistro(id) {
@@ -334,7 +335,7 @@
                     datavalidade: document.getElementById('datavalidade').value,
                     filtro: $('#validationCustom03 option:selected').text(),
                     status: $('#validationCustom04 option:selected').text(),
-                    empresa: '1'
+                    empresa_id: userId 
                 }
                 db.push(vaga)
                 $("#id").val("")
