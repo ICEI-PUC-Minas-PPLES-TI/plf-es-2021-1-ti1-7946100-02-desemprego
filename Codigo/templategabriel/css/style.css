@@ -33,6 +33,7 @@ header > nav.navbar{
 div.noticias div:first-child{
     margin-top: 15px;
 }
+
 div.card.noticia{
     padding: 10px;
     margin-bottom: 10px;
@@ -53,6 +54,7 @@ div.card.cursos{
 a#equipe{
     text-decoration: none;
     color: black;
+    font-size: 2rem;
 }
 div.card.noticia a{
     text-align: right;
