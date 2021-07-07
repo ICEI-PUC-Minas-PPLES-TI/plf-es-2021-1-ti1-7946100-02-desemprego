@@ -18,7 +18,7 @@ onload = () => {
 
         if(!userLocalStorage) return;
 
-        criarSession(userLocalStorage);
+        //criarSession(userLocalStorage);
 
         if(!logar(userForm, senhaForm, alertUsuarioInexistente, userLocalStorage)) return;
         
