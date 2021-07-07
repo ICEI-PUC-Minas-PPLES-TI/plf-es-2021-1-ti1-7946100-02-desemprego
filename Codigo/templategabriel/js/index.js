@@ -156,8 +156,8 @@ function imprimeDados() {
                 `<div class="row">
                 <div class="card container vagas_info">
                     <div class="mb-4 d-flex justify-content-between">
-                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
-                        <button class="btn btn-danger btn-interesse ${vaga.id}">Adicionar Favorita</button>
+                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}" style="cursor:pointer;">${vaga.funcao}</a></h5>
+                        <button class="btn btn btn-interesse ${vaga.id}">Adicionar aos favoritos</button>
                     </div>
                     <div class="mb-4">
                         <p class="empresa text-justify">Requisitos: ${vaga.requisitos}</p>
@@ -201,8 +201,8 @@ function imprimeVagas() {
                 `<div class="row">
                 <div class="card container vagas_info">
                     <div class="mb-4 d-flex justify-content-between">
-                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
-                        <button class="btn btn-danger btn-interesse ${vaga.id}">Adicionar Favorita</button>
+                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}" style="cursor:pointer;">${vaga.funcao}</a></h5>
+                        <button class="btn btn-interesse ${vaga.id}">Adicionar aos favoritos</button>
                     </div>
                     <div class="mb-4">
                         <p class="empresa text-justify">Requisitos: ${vaga.requisitos}</p>
@@ -233,7 +233,7 @@ function imprimeVagas() {
         <h1>Nossas vagas</h1>
     </div>
     `
-    card_info.innerHTML = title + strTexto;
+    card_info.innerHTML = strTexto;
 }
 
 document.getElementById('filtro_info').addEventListener('change', imprimeDados);
@@ -297,10 +297,15 @@ function adicionarVagaFavorita() {
                             favoritosArray.push({ ...obj, id_usuario: id_usuario });
                             localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
                         }
+                    } else {
+                        alert("Você já adicionou essa vaga");
+                        break;
                     }
                 }
             });
         }
+    } else {
+        alert("Faça login para ter acesso a mais funções");
     }
 }
 

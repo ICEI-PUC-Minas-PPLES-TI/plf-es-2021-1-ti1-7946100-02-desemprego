@@ -34,32 +34,32 @@
 
 <body class="bg-light">
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div id="header container" class="container">
-                <div id="logo">
-                    <a class="navbar-brand" href="./index.html"><img src="./img/desEmpreguei_free-file.png" alt="logo" style="width: 200px"></a>
-                </div>
-                <div id="logar">
-                    <div class="d-flex w-100">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle confirma-login" href="#" id="navbarDropdown perfil" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Perfil
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-navbar" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="./perfil_candidato_info.html">Candidate-se</a></li>
-                                    <li><a class="dropdown-item" href="./perfil_empresa_info.html">Contrate</a></li>
-                                    <li><a class="dropdown-item finalizarSessao">Sair</a></li>
-                                </ul>
-                            </li>
-                            <div class="alert alert-light position-absolute alert-login d-none" role="alert">
-                                Fazer <a href="./login.html">Login</a>
-                            </div>
-                        </ul>
-                    </div>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="./index.html"><img src="./img/desEmpreguei_free-file.png" alt="logo" style="width: 200px"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle confirma-login" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Perfil
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-navbar" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="./perfil_candidato_info.html">Candidatos</a></li>
+                                <li><a class="dropdown-item" href="./perfil_empresa_info.html">Contratante</a></li>
+                                <li><a class="dropdown-item finalizarSessao">Sair</a></li>
+                            </ul>
+                        </li>
+                        <div class="alert alert-light position-absolute alert-login d-none" role="alert">
+                            Fazer <a href="./login.html">Login</a>
+                        </div>
+                    </ul>
                 </div>
             </div>
-          </nav>
+        </nav>
     </header>
     <div id="bg">
         <div class="ball top"></div>
@@ -71,23 +71,29 @@
                 <div class="col-12 col-lg-8">
                     <div class="card mb-4">
                         <div class="card-header campo-vagas">
-                            <h1 class="card-title">Pesquisa</h1>
+                            <h3 class="card-title">Pesquisa</h3>
                             <div class="form-group">
                                 <form action="">
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-12 col-md-6 col-lg-8">
                                             <div class="form-group">
                                                 <div class="input-group mb-3">
-                                                    <button class="btn pesquisar" type="button" id="button-addon1">Pesquisar</button>
-                                                    <input id="pesquisa" type="text" class="form-control" aria-label="Text input with dropdown button">
-                                                    <select name="filtro_info" id="filtro_info" class="form-control button">
-                                                        <option value="Geral">Vagas específicas</option>
-                                                        <option value="Mais Experiente">Mais experiente (50 +)</option>
-                                                        <option value="Outras Culturas">Outras Culturas</option>
-                                                        <option value="Primeira Oportunidade">Primeira Oportunidade</option>
-                                                    </select> 
+                                                    <button class="btn pesquisar" type="button" id="button-addon1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                                        </svg>
+                                                    </button>
+                                                    <input id="pesquisa" type="text" class="form-control" aria-describedby="button-addon1" aria-label="Text input with dropdown button">
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <select name="filtro_info" id="filtro_info" class="form-control button">
+                                                <option value="Geral">Vagas específicas</option>
+                                                <option value="Mais Experiente">Mais experiente (50 +)</option>
+                                                <option value="Outras Culturas">Outras Culturas</option>
+                                                <option value="Primeira Oportunidade">Primeira Oportunidade</option>
+                                            </select> 
                                         </div>
                                     </div>
                                 </form>
@@ -95,9 +101,9 @@
                         </div>
                     </div>
                     <div id="card_info" class="card container">
-                        <div class="row">
+                        <!-- <div class="row">
                             <h1>Nossas Vagas</h1>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="card container vagas_info">
                                 <div class="row">
@@ -186,7 +192,7 @@
                     <div class="card mb-4">
                         <div class="noticias card-body">
                             <a href="noticias.html">
-                                <h1 class="card-title">Notícias</h1>
+                                <h3 class="card-title">Notícias</h3>
                             </a>
                             <div id="noticias_card">
                                 <div class="card noticia">
@@ -211,7 +217,7 @@
                     <div class="card mb-4">
                         <div class="cursos card-body">
                             <a href="cursos.html">
-                                <h1 class="card-title">Cursos</h1>
+                                <h3 class="card-title">Cursos</h3>
                             </a>
                             <div id="cursos">
                                 <div class="card cursos">
@@ -237,20 +243,16 @@
             </div>
         </div>
     </main>
-    <footer id="footer" class="p-5 text-black">
+    <footer class="text-black p-5" id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-lg-4">
-                    <p>
+                <div class="col-12 col-lg-4 text-center mb-3">
+                        <a class="text-secondary text-decoration-none" href="equipe.html">Nossa Equipe</a>
+                </div>
+                <div class="col-12 col-lg-4 text-center mb-3">
                         CopyRight 2021. Todos direitos reservados
-                    </p>
                 </div>
-                <div class="col-sm-12 col-lg-4">
-                    <p>
-                        <a id="equipe" href="equipe.html">Nossa Equipe</a>
-                    </p>
-                </div>
-                <div class="col-sm-12 col-lg-4 logo">
+                <div class="col-12 col-lg-4 text-center mb-3">
                     <a href="./index.html">
                         <img  src="./img/desEmpreguei_free-file.png" alt="logo">
                     </a>

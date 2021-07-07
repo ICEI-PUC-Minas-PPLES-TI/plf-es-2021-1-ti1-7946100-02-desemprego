@@ -79,11 +79,10 @@ ul > li > a#navbarDropdown#perfil{
     width: 250px;
 }
 input#pesquisa{
-    width: 300px;
+    /*width: 300px;*/
 }
 footer#footer{
     background-color: rgba(72, 53, 212, 0.2);
-    height: 130px;
     margin-top: min(40rem);
 }
 button.btn, select.button{
