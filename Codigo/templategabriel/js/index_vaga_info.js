@@ -54,7 +54,7 @@ function adicionarString(vagaInfo) {
             <span><strong>Filtro: </strong>${vagaInfo.filtro}</span>
             <span><strong>Escolaridade: </strong>${vagaInfo.escolaridade}</span>
             <span><strong>Localidade: </strong>${vagaInfo.localidade}</span>
-            <span><strong>Data: </strong>${vagaInfo.data}</span>
+            <span><strong>Data: </strong>${vagaInfo.datavalidade.split('-').reverse().join('/')}</span>
         </div>
     `;
 
