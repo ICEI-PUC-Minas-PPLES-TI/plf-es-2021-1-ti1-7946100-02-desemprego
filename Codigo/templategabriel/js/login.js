@@ -18,7 +18,6 @@ onload = () => {
 
         if(!userLocalStorage) return;
 
-        console.log('ola', userLocalStorage);
         criarSession(userLocalStorage);
 
         if(!logar(userForm, senhaForm, alertUsuarioInexistente, userLocalStorage)) return;
@@ -28,6 +27,7 @@ onload = () => {
 }
 
 function logar(usuario, senha, alertUsuarioInexistente, userLocalStorage) {
+    console.log('oi');
     for(let usuarioCadastrado of userLocalStorage) {
         if((usuario.value !== usuarioCadastrado.nome || usuario.value !== usuarioCadastrado.email) && senha.value !== usuarioCadastrado.senha) {
             alertUsuarioInexistente.setAttribute('style', 'display: block !important');
