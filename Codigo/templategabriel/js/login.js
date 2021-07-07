@@ -1,8 +1,9 @@
 const form = document.querySelector('#login');
 const userForm = document.querySelector('#usuario');
 const senhaForm = document.querySelector('#senha');
-const alertCampoVazio = document.querySelector('.alert-campo-vazio');
+const alertCampo = document.querySelector('.alert-campo');
 const alertUsuarioInexistente = document.querySelector('.alert-usuario-inexistente');
+const userLocalStorage = JSON.parse(localStorage.getItem('usuario-cadastro'));
 
 sessionStorage.clear();
 
@@ -12,36 +13,35 @@ onload = () => {
     form.onsubmit = (e) => {
         e.preventDefault();
 
-        if(!verificarCamposLogin(userForm, senhaForm, alertCampoVazio)) return;
-
-        const userLocalStorage = JSON.parse(localStorage.getItem('usuario-cadastro'));
+        if(!verificarCamposLogin(userForm, senhaForm)) return;
 
         if(!userLocalStorage) return;
 
-        //criarSession(userLocalStorage);
-
-        if(!logar(userForm, senhaForm, alertUsuarioInexistente, userLocalStorage)) return;
+        if(!logar(userForm, senhaForm)) return;
         
         location.href = "./index.html";
     }
 }
 
-function logar(usuario, senha, alertUsuarioInexistente, userLocalStorage) {
+function logar(usuario, senha) {
+    let ctr = true;
     for(let usuarioCadastrado of userLocalStorage) {
-        console.log(usuarioCadastrado);
-        if((usuario.value !== usuarioCadastrado.nome || usuario.value !== usuarioCadastrado.email) && senha.value !== usuarioCadastrado.senha) {
-            alertUsuarioInexistente.setAttribute('style', 'display: block !important');
+        console.log(usuarioCadastrado.email, usuario.value);
+        if(usuario.value !== usuarioCadastrado.email || senha.value !== usuarioCadastrado.senha) {
+            alertCampo.setAttribute('style', 'display: block !important');
+            alertCampo.innerHTML = '<strong>Usuário ou senha inválido</strong>';
             usuario.classList.add('is-invalid');
             usuario.parentElement.parentElement.classList.add('has-danger');
             usuario.classList.add('is-invalid');
             usuario.parentElement.parentElement.classList.add('has-danger');
-            return false;
+            ctr = false;
         }
-        if((usuario.value === usuarioCadastrado.nome || usuario.value === usuarioCadastrado.email) && senha.value === usuarioCadastrado.senha) {
+        if(usuario.value === usuarioCadastrado.email && senha.value === usuarioCadastrado.senha) {
             criarSession(usuarioCadastrado.nome, senha.value, usuarioCadastrado.id);
+            ctr = true;
         }
     }
-    return true;
+    return ctr;
 }
 
 function criarSession(nome, senha, id) {
@@ -54,9 +54,10 @@ function criarSession(nome, senha, id) {
     sessionStorage.setItem('usuario-login', userJSON);
 }
 
-function verificarCamposLogin(usuario, senha, alertCampoVazio) {
+function verificarCamposLogin(usuario, senha) {
     if(usuario.value.length === 0 || senha.value.length === 0) {
-        alertCampoVazio.setAttribute('style', 'display: block !important');
+        alertCampo.setAttribute('style', 'display: block !important');
+        alertCampo.innerHTML = '<strong>Favor digitar todos os campos</strong>';
         if(usuario.value.length === 0) {
             usuario.classList.add('is-invalid');
             usuario.parentElement.parentElement.classList.add('has-danger');
