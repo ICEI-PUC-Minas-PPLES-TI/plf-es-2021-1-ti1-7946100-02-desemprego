@@ -3,7 +3,7 @@
 //     // executaPesquisaCursos()
 // }
 
-const API_KEY = 'b5d2164cdc0045ce8ca77e40d68a5555'
+const API_KEY = '40cc1e78470844b7af4e4a5183069da0'
 
 function exibeNoticiasPagina(){
     let divNoticias = document.getElementById('card_noticias')
