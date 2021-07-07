@@ -4,6 +4,9 @@ footer#footer{
 div.ball.bottom{
 	top: 60rem;
 }
+a.url_cv{
+	color: white !important;
+}
 .page-content {
 	width: 100%;
 	margin:  0 auto;

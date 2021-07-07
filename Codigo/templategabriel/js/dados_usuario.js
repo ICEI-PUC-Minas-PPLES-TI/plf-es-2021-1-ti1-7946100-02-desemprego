@@ -34,6 +34,7 @@ function leDados(){
                     candidato_id_sessao: 8,
                     company: "PUC Minas",
                     cpf: "672.902.022-20",
+                    url_curriculo: "https://www.linkedin.com/feed/",
                     ddd: "67",
                     email: "leticia@user.com",
                     estado: "AM",
@@ -53,6 +54,7 @@ function leDados(){
                     candidato_id_sessao: 9,
                     company: "PUC Minas",
                     cpf: "920.027.726-23",
+                    url_curriculo: "https://www.linkedin.com/feed/",
                     ddd: "56",
                     email: "mariana@user.com",
                     estado: "BA",
@@ -101,6 +103,7 @@ function incluirContato(){
         objDados.usuarios_candidato[index].estado = document.getElementById('estado').value
         objDados.usuarios_candidato[index].zip = document.getElementById('zip').value
         objDados.usuarios_candidato[index].cpf = document.getElementById('cpf').value
+        objDados.usuarios_candidato[index].url_curriculo = document.getElementById('url_cv').value
         objDados.usuarios_candidato[index].ddd = document.getElementById('code').value
         objDados.usuarios_candidato[index].phone = document.getElementById('phone').value
 
@@ -127,6 +130,7 @@ function incluirContato(){
         let novoestado = document.getElementById('estado').value
         let novozip = document.getElementById('zip').value
         let novocpf = document.getElementById('cpf').value
+        let novourlcv = document.getElementById('url_cv').value
         let novocode = document.getElementById('code').value
         let novophone = document.getElementById('phone').value
     
@@ -134,6 +138,7 @@ function incluirContato(){
             id: novoId,
             email: novoemail,
             area: novoarea,
+            url_curriculo: novourlcv,
             first_name: novofirst_name,
             last_name: novolast_name,
             position: novoposition,
@@ -212,6 +217,9 @@ function imprimeDados(){
                 <div class="row">
                     <div class="col-12">
                         <p><strong>Telefone: (${objUltimo.ddd}) ${objUltimo.phone} </strong></p>
+                    </div>
+                    <div class="col-6">
+                        <p><strong>URL currículo: <a class="url_cv" href="${objUltimo.url_curriculo}">Linkedin</a></strong></p>
                     </div>
                 </div>
             </div>

@@ -134,7 +134,7 @@
                                         </div>                          
                                         
                                         <div class="form-row">
-                                            <select id="seniority" name="employees">
+                                            <select id="seniority" name="employees" required>
                                                     <option value="employees">Senioridade</option>
                                                     <option value="Estágio/Treinee">Estágio / Treinee</option>
                                                     <option value="Junior">Júnior</option>
@@ -157,7 +157,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="form-row form-row-1">
-                                                <select id="estado" name="Estado">
+                                                <select id="estado" name="Estado" required>
                                                     <option value="">UF</option>
                                                     <option value="AC ">AC</option>
                                                     <option value="AL">AL</option>
@@ -196,7 +196,7 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                            <input type="text" class="cpf" id="cpf" placeholder="CPF">
+                                            <input type="text" class="cpf" id="cpf" placeholder="CPF" required>
                                             
                                         </div>
                                         <div class="form-group">
@@ -207,7 +207,9 @@
                                                 <input type="text" name="phone" class="phone" id="phone" placeholder="Número de Telefone" required>
                                             </div>
                                         </div>
-                                        
+                                        <div class="form-row">
+                                            <input type="text" class="cpf" id="url_cv" placeholder="URL currículo Linkedin" required>
+                                        </div>
                                         <div class="form-checkbox">
                                             <label class="container"><p>Eu aceito os <a href="" class="text">Termos e Condições</a> do site.</p>
                                                   <input type="checkbox" name="checkbox" required>
@@ -271,8 +273,11 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-6">
                                             <p><strong>Telefone: </strong></p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p><strong>URL currículo: </strong></p>
                                         </div>
                                     </div>
                                 </div>
