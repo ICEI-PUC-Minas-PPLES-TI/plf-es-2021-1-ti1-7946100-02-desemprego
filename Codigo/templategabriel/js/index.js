@@ -135,7 +135,6 @@ function leDados() {
         ];
         localStorage.setItem('cadastroVagas', JSON.stringify(objDados));
     }
-    console.log(objDados);
     return objDados;
 }
 
@@ -158,7 +157,7 @@ function imprimeDados() {
                 <div class="card container vagas_info">
                     <div class="mb-4 d-flex justify-content-between">
                         <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
-                        <button class="btn btn-danger btn-interesse ${vaga.id}"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-danger btn-interesse ${vaga.id}">Adicionar Favorita</button>
                     </div>
                     <div class="mb-4">
                         <p class="empresa text-justify">Requisitos: ${vaga.requisitos}</p>
@@ -203,7 +202,7 @@ function imprimeVagas() {
                 <div class="card container vagas_info">
                     <div class="mb-4 d-flex justify-content-between">
                         <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
-                        <button class="btn btn-danger btn-interesse ${vaga.id}"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-danger btn-interesse ${vaga.id}">Adicionar Favorita</button>
                     </div>
                     <div class="mb-4">
                         <p class="empresa text-justify">Requisitos: ${vaga.requisitos}</p>
@@ -243,7 +242,6 @@ document.getElementById('filtro_info').addEventListener('change', imprimeDados);
 
 function selecionarVaga() {
     const linkVagas = document.querySelectorAll('.titulo_vaga');
-    console.log(linkVagas);
     for (let linkVaga of linkVagas) {
         linkVaga.addEventListener("click", function (e) {
             sessionStorage.setItem("vaga-info", JSON.stringify(linkVaga.id));
@@ -271,24 +269,41 @@ function menuUsuario(usuarioSession) {
 }
 
 function adicionarVagaFavorita() {
-    const todosBtnFavorito = document.querySelectorAll('.btn-interesse');
-    console.log(todosBtnFavorito);
-    const usuarioSession = sessionStorage.getItem('usuario-login');
-    const id_usuario = JSON.parse(usuarioSession).id;
-    for (let btnFavorito of todosBtnFavorito) {
-        btnFavorito.addEventListener("click", (e) => {
-            const el = e.target;
-            let objDados = leDados();
-            for (let obj of objDados) {
-                if (el.classList.contains(String(obj.id))) {
-                    favoritosArray.push({ ...obj, id_usuario: id_usuario });
-                    localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
+    if(sessionStorage.getItem('usuario-login')) {
+        const todosBtnFavorito = document.querySelectorAll('.btn-interesse');
+        const usuarioSession = sessionStorage.getItem('usuario-login');
+        const id_usuario = JSON.parse(usuarioSession).id;
+        for (let btnFavorito of todosBtnFavorito) {
+            btnFavorito.addEventListener("click", (e) => {
+                const el = e.target;
+                let objDados = leDados();
+                for (let obj of objDados) {
+                    let ctr = true;
+                    if(!localStorage.getItem('favoritos')) {
+                        if (el.classList.contains(String(obj.id))) {
+                            favoritosArray.push({ ...obj, id_usuario: id_usuario });
+                            localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
+                        }
+                    }
+                    if(favoritosArray.length !== 0) {
+                        for(let favorito of favoritosArray) {
+                            if(favorito.id === obj.id) {
+                                ctr = false;
+                            }
+                        }
+                    }
+                    if(ctr) {
+                        if (el.classList.contains(String(obj.id))) {
+                            favoritosArray.push({ ...obj, id_usuario: id_usuario });
+                            localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
+                        }
+                    }
                 }
-            }
-            console.log(objDados);
-        });
+            });
+        }
     }
 }
+
 
 function criarDiv() {
     const div = document.createElement('div');
