@@ -24,7 +24,7 @@ function leDados() {
                 localidade: "Belo Horizonte",
                 filtro: "Mais Experiente",
                 datavalidade: "2021-12-19",
-                candidatosIds: [],
+                candidatosIds: [9, 8, 7],
                 empresa_id: 0
             },
             {
