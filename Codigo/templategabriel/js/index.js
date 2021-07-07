@@ -221,7 +221,7 @@ function imprimeVagas() {
                             <i class="fas fa-filter"><span class="info_vagas"> ${vaga.filtro}</span></i>
                         </div>
                         <div class="col-6 col-md-3">
-                            <i class="far fa-clock"><span class="explicacao info_vagas" data-tooltip=" Data limite para inscrição! "> ${datavalidade.split('-').reverse().join('/')}</span></i>
+                            <i class="far fa-clock"><span class="explicacao info_vagas" data-tooltip=" Data limite para inscrição! "> ${vaga.datavalidade.split('-').reverse().join('/')}</span></i>
                         </div>
                     </div>
                 </div>
