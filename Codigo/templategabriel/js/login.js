@@ -7,8 +7,6 @@ const userLocalStorage = JSON.parse(localStorage.getItem('usuario-cadastro'));
 
 sessionStorage.clear();
 
-
-
 onload = () => {
     form.onsubmit = (e) => {
         e.preventDefault();
@@ -26,7 +24,7 @@ onload = () => {
 function logar(usuario, senha) {
     let ctr = true;
     for(let usuarioCadastrado of userLocalStorage) {
-        console.log(usuarioCadastrado.email, usuario.value);
+        console.log(typeof senha.value, typeof usuarioCadastrado.senha);
         if(usuario.value !== usuarioCadastrado.email || senha.value !== usuarioCadastrado.senha) {
             alertCampo.setAttribute('style', 'display: block !important');
             alertCampo.innerHTML = '<strong>Usuário ou senha inválido</strong>';
@@ -38,7 +36,7 @@ function logar(usuario, senha) {
         }
         if(usuario.value === usuarioCadastrado.email && senha.value === usuarioCadastrado.senha) {
             criarSession(usuarioCadastrado.nome, senha.value, usuarioCadastrado.id);
-            ctr = true;
+            return ctr = true;
         }
     }
     return ctr;
