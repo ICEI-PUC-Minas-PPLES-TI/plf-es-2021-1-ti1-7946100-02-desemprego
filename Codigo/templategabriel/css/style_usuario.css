@@ -1,6 +1,6 @@
-/* header{
-    max-width: 100%;
-} */
+footer{
+    margin-top: min(0rem);
+}
 body{
     align-items: center;
     overflow-x: hidden;
@@ -12,6 +12,9 @@ header > nav.navbar{
 /* input#pesquisa{
     outline: #4835d4;
 } */
+div.ball.bottom{
+    top: 60rem;
+}
 .ball{
     background-color: rgba(72, 53, 212, 0.4);
     clip-path: circle();
@@ -84,7 +87,7 @@ input#pesquisa{
 footer#footer{
     background-color: rgba(72, 53, 212, 0.2);
     height: 130px;
-    margin-top: min(40rem);
+    margin-top: 90rem;
 }
 button.btn, select.button{
     background-color: #8A76FF;

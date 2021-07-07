@@ -1,0 +1,6 @@
+footer#footer{
+	margin-top: min(55rem) !important;
+}
+div.ball.bottom{
+	top: 60rem;
+}

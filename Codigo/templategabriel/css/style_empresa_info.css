@@ -1,6 +1,9 @@
 body {
 	margin:  0;
 }
+div.ball.bottom{
+	top: 60rem;
+}
 #tela_informacoes{
 	margin-top: 15px;
 	border-radius: 10px;
