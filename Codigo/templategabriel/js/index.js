@@ -237,28 +237,8 @@ function imprimeVagas() {
     card_info.innerHTML = title + strTexto;
 }
 
-
-// function incluirVaga(){
-//     // Ler dados localStorage
-//     let objDados = leDados();
-
-// }
 document.getElementById('filtro_info').addEventListener('change', imprimeDados);
 
-// onload = () => {
-//     const usuarioSession = JSON.parse(sessionStorage.getItem('usuario-login'));
-//     imprimeVagas();
-
-
-//     menuUsuario(usuarioSession);
-//     selecionarVaga();
-//     adicionarVagaFavorita();
-    
-//     executaPesquisaCursos()
-//     executaPesquisaNoticias()
-    
-
-// }
 
 
 function selecionarVaga() {
@@ -319,6 +299,73 @@ function criarA() {
     const a = document.createElement('a');
     return a;
 }
+
+// str.toLowerCase();
+function realizaPesquisaVagas(){
+    let pesquisa = document.getElementById('pesquisa').value
+    let objDados = leDados()
+    let quantidadeVagas = 0
+    let card_info = document.getElementById('card_info')
+    let Texto = ``
+
+    for (let i = 0; i < objDados.length; i++){
+        let titulo = objDados[i].atividades.toLowerCase()
+        let conteudo = objDados[i].funcao.toLowerCase()
+        let data = new Date (objDados[i].datavalidade)
+        data = data.toLocaleDateString()
+        if (data == null) data = objDados[i].data
+        let vaga = objDados[i]
+        if (titulo.indexOf(pesquisa.toLowerCase()) != -1 || conteudo.indexOf(pesquisa.toLowerCase()) != -1){
+            quantidadeVagas++
+            Texto +=
+                `<div class="row">
+                <div class="card container vagas_info">
+                    <div class="mb-4 d-flex justify-content-between">
+                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
+                        <button class="btn btn-danger btn-interesse ${vaga.id}"><i class="fas fa-heart"></i></button>
+                    </div>
+                    <div class="mb-4">
+                        <p class="empresa text-justify">Requisitos: ${vaga.requisitos}</p>
+                        <p class="descricao_vaga text-justify">
+                            ${vaga.atividades}
+                        </p>
+                    </div>
+                    <div class="row">
+                    <!--<div class="col-6 col-md-3">
+                            <i class="fas fa-map-marker-alt"><span class="info_vagas"> ${vaga.localidade}</span></i>
+                        </div>-->
+                        <div class="col-6 col-md-3">
+                            <i class="fas fa-search-dollar"><span class="info_vagas"> R$ ${vaga.salario}</span></i>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <i class="fas fa-filter"><span class="info_vagas"> ${vaga.filtro}</span></i>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <i class="far fa-clock"><span class="explicacao info_vagas" data-tooltip=" Data limite para inscrição! "> ${data}</span></i>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+        }
+    }
+    if (quantidadeVagas == 0){
+        Texto = `
+        <div class="row">
+            <div class="card">
+                <h1>Infelizmente não possuímos vagas para essa pesquisa</h1>
+            </div>
+        </div>
+        `
+    }
+    title = `
+    <div class="row">
+        <h1>Pesquisa = "${pesquisa}"</h1>
+    </div>
+    `
+    card_info.innerHTML = title + Texto
+}
+
+document.getElementById('button-addon1').addEventListener('click', realizaPesquisaVagas)
 
 
 // Noticias e cursos 

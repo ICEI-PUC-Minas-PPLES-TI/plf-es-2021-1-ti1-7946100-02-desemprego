@@ -1,5 +1,9 @@
-
-
+footer#footer{
+	margin-top: min(20rem);
+}
+div.ball.bottom{
+	top: 60rem;
+}
 .page-content {
 	width: 100%;
 	margin:  0 auto;
