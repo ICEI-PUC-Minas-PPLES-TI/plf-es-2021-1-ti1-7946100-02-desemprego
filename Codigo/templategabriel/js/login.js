@@ -28,6 +28,7 @@ onload = () => {
 
 function logar(usuario, senha, alertUsuarioInexistente, userLocalStorage) {
     for(let usuarioCadastrado of userLocalStorage) {
+        console.log(usuarioCadastrado);
         if((usuario.value !== usuarioCadastrado.nome || usuario.value !== usuarioCadastrado.email) && senha.value !== usuarioCadastrado.senha) {
             console.log(usuario.value, usuarioCadastrado.nome, usuarioCadastrado.email);
             console.log(senha.value, usuarioCadastrado.senha);
