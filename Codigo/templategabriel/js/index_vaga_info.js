@@ -81,6 +81,7 @@ function adicionarString(vagaInfo) {
 
 function exibirVaga() {
     let str = '';
+    console.log(vagaId);
     for (let vagaInfo of vagasInfos) {
         if(vagaInfo.id === vagaId) {
             str = adicionarString(vagaInfo);
