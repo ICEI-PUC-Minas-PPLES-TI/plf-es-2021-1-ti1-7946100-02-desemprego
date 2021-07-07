@@ -157,7 +157,7 @@ function imprimeDados() {
                 `<div class="row">
                 <div class="card container vagas_info">
                     <div class="mb-4 d-flex justify-content-between">
-                        <h5><a class="titulo_vaga" id="id-vaga-${vaga.id}">${vaga.funcao}</a></h5>
+                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
                         <button class="btn btn-danger btn-interesse ${vaga.id}"><i class="fas fa-heart"></i></button>
                     </div>
                     <div class="mb-4">
@@ -202,7 +202,7 @@ function imprimeVagas() {
                 `<div class="row">
                 <div class="card container vagas_info">
                     <div class="mb-4 d-flex justify-content-between">
-                        <h5><a class="titulo_vaga" id="id-vaga-${vaga.id}">${vaga.funcao}</a></h5>
+                        <h5><a class="titulo_vaga" id="id-vaga-0${vaga.id}">${vaga.funcao}</a></h5>
                         <button class="btn btn-danger btn-interesse ${vaga.id}"><i class="fas fa-heart"></i></button>
                     </div>
                     <div class="mb-4">

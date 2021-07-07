@@ -9,7 +9,7 @@ function leDados(){
     else{
         objDados = { 
             usuarios_candidato: [
-                { 
+                /*{ 
                     id: 0,
                     email: "fulano@pucminas.br",
                     area: "- Área de atuação -",
@@ -26,6 +26,44 @@ function leDados(){
                     cpf: "CPF",
                     ddd: "DDD",
                     phone: "Telefone"
+                },*/
+                {
+                    additional: "123",
+                    area: "Ciências Biológicas",
+                    business: "Gerente",
+                    candidato_id_sessao: 8,
+                    company: "PUC Minas",
+                    cpf: "672.902.022-20",
+                    ddd: "67",
+                    email: "leticia@user.com",
+                    estado: "AM",
+                    first_name: "Leticia",
+                    id: 0,
+                    last_name: "Arruda",
+                    phone: "99999-9999",
+                    position: "Pessoa Diretora",
+                    seniority: "Pleno",
+                    street: "Rua das Abelhas",
+                    zip: "999999"
+                },
+                {
+                    additional: "345",
+                    area: "Ciências Sociais Aplicadas",
+                    business: "Gerente",
+                    candidato_id_sessao: 9,
+                    company: "PUC Minas",
+                    cpf: "920.027.726-23",
+                    ddd: "56",
+                    email: "mariana@user.com",
+                    estado: "BA",
+                    first_name: "Mariana",
+                    id: 1,
+                    last_name: "Geovanne",
+                    phone: "99999-9999",
+                    position: "Analista",
+                    seniority: "Pleno",
+                    street: "Rua Morge",
+                    zip: "9999999"
                 }
             ]
         }

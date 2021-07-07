@@ -1,26 +1,31 @@
 const conteudoPagina = document.querySelector('.candidatos-interessados');
-const vagasInfos = JSON.parse(sessionStorage.getItem('perfilEmpresaLinkVagasCandidatos'));
+const vagasInfos = JSON.parse(localStorage.getItem('cadastroVagas'));
 const candidatosInfos = JSON.parse(localStorage.getItem('dbCandidato'));
+const userId = JSON.parse(sessionStorage.getItem("usuario-login")).id;
 
 function criarString(candidatoInfo) {
     return `
         <div class="card p-3 mb-3">
-            <h3>${candidatoInfo.first_name}</h3>
+            <h3>${candidatoInfo.first_name} -> ${candidatoInfo.candidato_id_sessao}</h3>
         </div>
     `
 }
 
 function iterarVagas() {
     for(let vagaInfo of vagasInfos) {
-        for(let idCandidato of vagaInfo.candidatosIds) {
-            console.log(idCandidato);
+        if(userId === vagaInfo.empresa_id) {
+            for(let idCandidato of vagaInfo.candidatosIds) {
+                console.log(idCandidato);
+            }
         }
+        
     }
 }
+iterarVagas();
 
 function exibirCandidato() {
     let str = '';
-    console.log(candidatosInfos);
+    
     for(let candidatoInfo of candidatosInfos.usuarios_candidato) {
         str += criarString(candidatoInfo);
 
