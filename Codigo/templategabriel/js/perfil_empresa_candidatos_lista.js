@@ -6,29 +6,33 @@ const userId = JSON.parse(sessionStorage.getItem("usuario-login")).id;
 function criarString(candidatoInfo) {
     return `
         <div class="card p-3 mb-3">
-            <h3>${candidatoInfo.first_name} -> ${candidatoInfo.candidato_id_sessao}</h3>
+            <h3 class="mb-2">${candidatoInfo.first_name} ${candidatoInfo.last_name}</h3>
+            <div class="d-flex flex-column">
+                <span class="text-secondary"><strong>Telefone: </strong>(${candidatoInfo.ddd}) ${candidatoInfo.phone}</span>
+                <span class="text-secondary"><strong>Email: </strong>${candidatoInfo.email}</span>
+                <span class="text-secondary"><strong>CPF: </strong>${candidatoInfo.cpf}</span>
+                <span class="text-secondary"><strong>Endereço: </strong>${candidatoInfo.street}/${candidatoInfo.additional}</span>
+                <span class="text-secondary"><strong>Area: </strong>${candidatoInfo.area}</span>
+                <span class="text-secondary"><strong>Posicão: </strong>${candidatoInfo.position}</span>
+                <span class="text-secondary"><strong>Senhoridade: </strong>${candidatoInfo.seniority}</span>
+            </div>
         </div>
     `
 }
 
-function iterarVagas() {
+function exibirCandidato() {
+    let str = '';
     for(let vagaInfo of vagasInfos) {
         if(userId === vagaInfo.empresa_id) {
             for(let idCandidato of vagaInfo.candidatosIds) {
-                console.log(idCandidato);
+                for(let candidatoInfo of candidatosInfos.usuarios_candidato) {
+                    if(idCandidato === candidatoInfo.candidato_id_sessao) {
+                        console.log(candidatoInfo);
+                        str += criarString(candidatoInfo);       
+                    }
+                }
             }
         }
-        
-    }
-}
-iterarVagas();
-
-function exibirCandidato() {
-    let str = '';
-    
-    for(let candidatoInfo of candidatosInfos.usuarios_candidato) {
-        str += criarString(candidatoInfo);
-
     }
     conteudoPagina.innerHTML = str;
 }
