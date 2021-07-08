@@ -1,6 +1,7 @@
 let vagasInfos = JSON.parse(localStorage.getItem("cadastroVagas"));
 const vagaId = Number(JSON.parse(sessionStorage.getItem("vaga-info")).slice(-2));
 const conteudoPagina = document.querySelector(".conteudo-pagina");
+const userId = JSON.parse(sessionStorage.getItem("usuario-login")).id;
 let novoVagasInfos = [];
 let vagaSelecionada;
 
@@ -57,10 +58,7 @@ function adicionarString(vagaInfo) {
             <span><strong>Data: </strong>${vagaInfo.datavalidade.split('-').reverse().join('/')}</span>
         </div>
     `;
-    let ctr = true;
-    if(!localStorage.getItem('dbCandidato')) {
-        ctr = false;
-    }
+    
     if (vagaInfo.status === "Aberta") {
         str +=
             `
@@ -84,7 +82,6 @@ function adicionarString(vagaInfo) {
 
 function exibirVaga() {
     let str = '';
-    console.log(vagaId);
     for (let vagaInfo of vagasInfos) {
         if(vagaInfo.id === vagaId) {
             str = adicionarString(vagaInfo);
