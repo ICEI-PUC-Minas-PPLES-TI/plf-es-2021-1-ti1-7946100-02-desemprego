@@ -14,7 +14,7 @@ function imprimirFavoritos(listaFavoritos, id_usuario) {
                 <div class="card p-3 w-100 mb-4">
                     <div class="row">
                         <div class="">
-                        <h5><a class="titulo_vaga" href="#">${favorito.funcao}</a></h5>
+                        <h5><a class="titulo_vaga" id="id-vaga-0${favorito.id}">${favorito.funcao}</a></h5>
                         <p class="empresa">Requisitos: ${favorito.requisitos}</p>
                         <p class="descricao_vaga">
                             ${favorito.atividades}
@@ -41,6 +41,17 @@ function imprimirFavoritos(listaFavoritos, id_usuario) {
         }
     }
     pageContent.innerHTML = str;
+    selecionarVaga();
+}
+
+function selecionarVaga() {
+    const linkVagas = document.querySelectorAll('.titulo_vaga');
+    for (let linkVaga of linkVagas) {
+        linkVaga.addEventListener("click", function (e) {
+            sessionStorage.setItem("vaga-info", JSON.stringify(linkVaga.id));
+            location.href = "index_vaga_info.html";
+        });
+    }
 }
 
 function criarDiv() {
@@ -51,4 +62,14 @@ function criarDiv() {
 function criarA() {
     const a = document.createElement('a');
     return a;
+}
+
+function menuUsuario(usuarioSession) {
+    console.log(1);
+    const btnPerfil = document.querySelector('.confirma-login');
+    if (usuarioSession) {
+        btnPerfil.innerHTML = `
+        Perfil ->  
+        <span class="nav-link-inner--text">${usuarioSession.nome}</span>`;
+    }
 }

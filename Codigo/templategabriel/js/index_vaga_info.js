@@ -57,7 +57,10 @@ function adicionarString(vagaInfo) {
             <span><strong>Data: </strong>${vagaInfo.datavalidade.split('-').reverse().join('/')}</span>
         </div>
     `;
-
+    let ctr = true;
+    if(!localStorage.getItem('dbCandidato')) {
+        ctr = false;
+    }
     if (vagaInfo.status === "Aberta") {
         str +=
             `
@@ -109,3 +112,12 @@ document.addEventListener('click', (e) => {
         }
     }
 });
+
+function menuUsuario(usuarioSession) {
+    const btnPerfil = document.querySelector('.confirma-login');
+    if (usuarioSession) {
+        btnPerfil.innerHTML = `
+        Perfil ->  
+        <span class="nav-link-inner--text">${usuarioSession.nome}</span>`;
+    }
+}

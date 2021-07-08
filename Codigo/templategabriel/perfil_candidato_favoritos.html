@@ -16,13 +16,22 @@
     <title>AcheiTi</title> 
     <script>
         onload = () => {
-            imprimeDados();
             const sessionUsuario = JSON.parse(sessionStorage.getItem('usuario-login'));
-                    if(!sessionUsuario) {
-                        location.href = "./index.html";
-                    }
+            const finalizarSessao = document.querySelector('.finalizarSessao');
+
+            imprimeDados();
+            
+            if(!sessionUsuario) location.href = "./index.html";
+
+            menuUsuario(sessionUsuario);
+
             myform.onsubmit = (evento) =>{
                 evento.preventDefault();                
+            }
+
+            finalizarSessao.onclick = () => {
+                sessionStorage.clear();
+                location.href = "./login.html";
             }
         }
     </script>       

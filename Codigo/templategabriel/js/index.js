@@ -274,41 +274,62 @@ function adicionarVagaFavorita() {
         const todosBtnFavorito = document.querySelectorAll('.btn-interesse');
         const usuarioSession = sessionStorage.getItem('usuario-login');
         const id_usuario = JSON.parse(usuarioSession).id;
-        for (let btnFavorito of todosBtnFavorito) {
+
+        for(let btnFavorito of todosBtnFavorito) {
             btnFavorito.addEventListener("click", (e) => {
                 const el = e.target;
                 let objDados = leDados();
                 for (let obj of objDados) {
-                    let ctr = true;
-                    if(!localStorage.getItem('favoritos')) {
-                        if (el.classList.contains(String(obj.id))) {
-                            favoritosArray.push({ ...obj, id_usuario: id_usuario });
-                            localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
-                        }
-                    }
-                    if(favoritosArray.length !== 0) {
-                        for(let favorito of favoritosArray) {
-                            if(favorito.id === obj.id) {
-                                ctr = false;
-                            }
-                        }
-                    }
-                    if(ctr) {
-                        if (el.classList.contains(String(obj.id))) {
-                            favoritosArray.push({ ...obj, id_usuario: id_usuario });
-                            localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
-                        }
-                    } else {
-                        alert("Você já adicionou essa vaga");
-                        break;
+                    if (el.classList.contains(String(obj.id))) {
+                        favoritosArray.push({ ...obj, id_usuario: id_usuario });
+                        localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
                     }
                 }
             });
         }
-    } else {
-        alert("Faça login para ter acesso a mais funções");
     }
 }
+
+// function adicionarVagaFavorita() {
+//     if(sessionStorage.getItem('usuario-login')) {
+//         const todosBtnFavorito = document.querySelectorAll('.btn-interesse');
+//         const usuarioSession = sessionStorage.getItem('usuario-login');
+//         const id_usuario = JSON.parse(usuarioSession).id;
+//         for (let btnFavorito of todosBtnFavorito) {
+//             btnFavorito.addEventListener("click", (e) => {
+//                 const el = e.target;
+//                 let objDados = leDados();
+//                 for (let obj of objDados) {
+//                     let ctr = true;
+//                     if(!localStorage.getItem('favoritos')) {
+//                         if (el.classList.contains(String(obj.id))) {
+//                             favoritosArray.push({ ...obj, id_usuario: id_usuario });
+//                             localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
+//                         }
+//                     }
+//                     if(favoritosArray.length !== 0) {
+//                         for(let favorito of favoritosArray) {
+//                             if(favorito.id === obj.id) {
+//                                 ctr = false;
+//                             }
+//                         }
+//                     }
+//                     if(ctr) {
+//                         if (el.classList.contains(String(obj.id))) {
+//                             favoritosArray.push({ ...obj, id_usuario: id_usuario });
+//                             localStorage.setItem('favoritos', JSON.stringify(favoritosArray));
+//                         }
+//                     } else {
+//                         alert("Você já adicionou essa vaga");
+//                         break;
+//                     }
+//                 }
+//             });
+//         }
+//     } else {
+//         alert("Faça login para ter acesso a mais funções");
+//     }
+// }
 
 
 function criarDiv() {
