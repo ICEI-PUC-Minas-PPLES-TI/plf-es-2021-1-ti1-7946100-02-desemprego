@@ -1,0 +1,31 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: Desemprego
+authors:
+  - family-names: Bandeira
+    given-names: Eduardo
+  - family-names: Ngunga
+    given-names: Horácio
+  - family-names: Rocha
+    given-names: Lucas
+  - family-names: Salem
+    given-names: Vitor
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Alves Nogueira
+    given-names: Simone
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Vieira Carneiro
+    given-names: Rommel
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: de Nardim
+    given-names: Luciana
+keywords:
+  - Desemprego
+  - Portal de Vagas
+repository-code: https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2021-1-ti1-7946100-02-desemprego
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2021-06-20
